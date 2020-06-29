@@ -1,28 +1,22 @@
 ---
 title: Komma igång med HTML
-seo-title: Komma igång med HTML
 description: HTML som stöds av AEM ersätter JSP som det rekommenderade och rekommenderade serversidesmallsystemet för HTML i AEM.
-seo-description: HTML-mallspråket - HTML - som stöds av Adobe Experience Manager ersätter JSP som det rekommenderade och rekommenderade serversidesmallsystemet för HTML i AEM.
-uuid: 4a7d6748-8cdf-4280-a85d-6c5319abf487
-content-type: reference
-topic-tags: introduction
-discoiquuid: 3bf2ca75-0d68-489d-bd1c-1d4fd730c61a
-mwpw-migration-script-version: 2017-10-12T21 46 58.665-0400
 translation-type: tm+mt
-source-git-commit: 6de5ed20e4463c0c2e804e24cb853336229a7c1f
+source-git-commit: ee712ef61018b5e05ea052484e2a9a6b12e6c5c8
+workflow-type: tm+mt
+source-wordcount: '2490'
+ht-degree: 0%
 
 ---
 
 
 # Komma igång med HTML {#getting-started-with-htl}
 
-HTML-mallspråket (HTL) som stöds av Adobe Experience Manager (AEM) ersätter JSP (JavaServer Pages) som det rekommenderade serversidesmallsystemet för HTML i AEM.
+HTML-mallspråket (HTL) som stöds av Adobe Experience Manager (AEM) är det rekommenderade och rekommenderade serversidesmallsystemet för HTML i AEM. Det ersätter JSP (JavaServer Pages) som det användes i tidigare versioner av AEM.
 
 >[!NOTE]
 >
 >Om du vill köra de flesta exempel som finns på den här sidan kan du använda en körningsmiljö som kallas [Read Eval Print Loop](https://github.com/Adobe-Marketing-Cloud/aem-htl-repl) .
->
->AEM Community har genererat en serie [artiklar, videor och webbinarier](related-community-articles.md) som rör HTML.
 
 ## HTL över JSP {#htl-over-jsp}
 
@@ -41,21 +35,15 @@ Men att gå över till HTML är inte nödvändigtvis ett alternativ som är helt
 
 Innan vi börjar med HTML-mallspråket börjar vi med att svara på några frågor som rör JSP kontra HTML.
 
-**Har HTML några begränsningar som JSP inte har?**
-HTML har inga begränsningar jämfört med JSP i den meningen att det som kan göras med JSP också ska vara möjligt med HTML. HTL är dock striktare genom design än JSP i flera aspekter, och vad som kan uppnås i en enda JSP-fil kan behöva separeras till en Java-klass eller en JavaScript-fil för att kunna nås i HTML. Detta är dock i allmänhet önskvärt för att säkerställa en bra avvägning mellan logiken och markeringen.
+**Har HTML några begränsningar som JSP inte har?** - HTML har inga begränsningar jämfört med JSP i den meningen att det som kan göras med JSP också ska vara möjligt med HTML. HTL är dock striktare genom design än JSP i flera aspekter, och vad som kan uppnås i en enda JSP-fil kan behöva separeras till en Java-klass eller en JavaScript-fil för att kunna nås i HTML. Detta är dock i allmänhet önskvärt för att säkerställa en bra avvägning mellan logiken och markeringen.
 
-**Stöder HTML JSP-taggbibliotek?**
-Nej, men som visas i avsnittet [Läser in klientbibliotek](getting-started.md#loading-client-libraries) erbjuder [mall- och anropssatserna](block-statements.md#template-call) ett liknande mönster.
+**Stöder HTML JSP-taggbibliotek?** - Nej, men som visas i avsnittet [Läser in klientbibliotek](getting-started.md#loading-client-libraries) erbjuder [mall- och anropsprogramsatserna](block-statements.md#template-call) ett liknande mönster.
 
-**Kan HTML-funktionerna utökas i ett AEM-projekt?**
-Nej, men som visas i avsnittet [Läser in klientbibliotek](getting-started.md#loading-client-libraries) erbjuder [mall- och anropssatserna](block-statements.md#template-call) ett liknande mönster.
-Nej, det kan de inte. HTML har kraftfulla tilläggsmekanismer för återanvändning av logik - [Use-API](getting-started.md#use-api-for-accessing-logic) - och av kod ( [template- och call](block-statements.md#template-call) -programsatser), som kan användas för att modularisera koden för projekt.
+**Kan HTML-funktionerna utökas i ett AEM-projekt?** Nej, det kan de inte. HTML har kraftfulla tilläggsmekanismer för återanvändning av logik - [Use-API](getting-started.md#use-api-for-accessing-logic) - och av kod ( [template- och call](block-statements.md#template-call) -programsatser), som kan användas för att modularisera koden för projekt.
 
-**Vilka är de viktigaste fördelarna med HTML jämfört med JSP?**
-Säkerhet och projekteffektivitet är de viktigaste fördelarna, som beskrivs i [Översikt](overview.md).
+**Vilka är de viktigaste fördelarna med HTML jämfört med JSP?** - Säkerhet och projekteffektivitet är de viktigaste fördelarna som finns i [översikten](overview.md).
 
-**Kommer JSP så småningom att försvinna?**
-För närvarande finns det inga planer på detta.
+**Kommer JSP så småningom att försvinna?** - För närvarande finns det inga planer på detta.
 
 ## Grundläggande begrepp i HTML {#fundamental-concepts-of-htl}
 
@@ -73,19 +61,13 @@ Här är ett första exempel som kan finnas som i en **`template.html`** fil:
 
 Två olika typer av syntaxer kan urskiljas:
 
-* **[Blocksatser](block-statements.md)**För att villkorligt visa **&lt;h1>**-elementet används ett`[data-sly-test](block-statements.md#test)`HTML5-dataattribut. HTML innehåller flera sådana attribut, som gör att du kan koppla beteenden till ett HTML-element, och alla har prefix`data-sly`.
+* **[Blocksatser](block-statements.md)**- För att villkorligt visa **&lt;h1>**-elementet används ett[`data-sly-test`](block-statements.md#test)HTML5-dataattribut. HTML innehåller flera sådana attribut, som gör att du kan koppla beteenden till ett HTML-element, och alla har prefix`data-sly`.
 
-* **[Uttrycksspråkets](expression-language.md)**HTML-uttryck avgränsas med tecken`${`och`}`. Vid körning utvärderas dessa uttryck och deras värde matas in i den utgående HTML-strömmen.
+* **[Uttrycksspråk](expression-language.md)**- HTML-uttryck avgränsas med tecken`${`och`}`. Vid körning utvärderas dessa uttryck och deras värde matas in i den utgående HTML-strömmen.
 
 På de två länkarna ovan finns en detaljerad lista över funktioner som är tillgängliga för syntax.
 
 ### Elementet SLY {#the-sly-element}
-
->[!NOTE]
->
->Elementet SLY har introducerats med AEM 6.1 eller HTL 1.1.
->
->Innan dess måste attributet `[data-sly-unwrap](block-statements.md)` användas i stället.
 
 Ett centralt koncept för HTML är att erbjuda möjligheten att återanvända befintliga HTML-element för att definiera blocksatser, vilket gör att man slipper lägga in ytterligare avgränsare för att definiera var satsen börjar och slutar. Den här diskreta kommenteringen av koden för att omvandla en statisk HTML till en fungerande dynamisk mall ger fördelen att inte bryta giltigheten för HTML-koden och därmed fortfarande visa den korrekt, även som statiska filer.
 
@@ -100,14 +82,14 @@ Följande exempel:
 </sly>
 ```
 
-kommer att generera något som följande HTML-kod, men bara om det finns både, en **`jcr:title`** och en **`jcr:decription`** -egenskap har definierats, och om ingen av dem är tom:
+kommer att generera något som följande HTML-kod, men bara om det finns både en **`jcr:title`** och en **`jcr:description`** -egenskap definierad och om ingen av dem är tom:
 
 ```xml
 <h1>MY TITLE</h1>
 <p>MY DESCRIPTION</p>
 ```
 
-En sak som du bör vara försiktig med är att bara använda SLY-elementet när inget befintligt element kan ha kommenterats med blockprogramsatsen, eftersom SLY-element förhindrar det värde som språket erbjuder att inte ändra den statiska HTML-koden när den blir dynamisk.
+En sak som du bör tänka på är att endast använda SLY-elementet när inget befintligt element kunde ha kommenterats med blockprogramsatsen, eftersom SLY-element inte ändrar värdet som språket erbjuder för att inte ändra den statiska HTML-koden när den blir dynamisk.
 
 Om det föregående exemplet till exempel skulle ha kapslats redan i ett DIV-element skulle det tillagda SLY-elementet vara stötande:
 
@@ -128,6 +110,12 @@ och DIV-elementet kunde ha kommenterats med följande villkor:
     <p>${properties.jcr:description}</p>
 </div>
 ```
+
+>[!NOTE]
+>
+>Elementet SLY introducerades med AEM 6.1 eller HTL 1.1.
+>
+>Innan dess måste attributet [`data-sly-unwrap`](block-statements.md) användas i stället.
 
 ### HTML-kommentarer {#htl-comments}
 
@@ -225,7 +213,7 @@ Titta på följande exempel:
 
 Och följande `logic.js` JavaScript-fil som körs på servern placeras bredvid den:
 
-```
+```javascript
 use(function () {
     return {
         title: currentPage.getTitle().substring(0, 10) + "..."
@@ -239,7 +227,7 @@ I exemplet ovan används JavaScript som körs på servern för att korta ned tit
 
 Mer information om detta i följande avsnitt:
 
-* Avsnittet i programsatsen [för](block-statements.md#use) dataanvändning förklarar allt som kan göras med den programsatsen.
+* I avsnittet på [`data-sly-use` programsatsen](block-statements.md#use) förklaras allt som kan göras med den programsatsen.
 * Sidan [](use-api.md) Use-API innehåller viss information som kan hjälpa dig att välja mellan att skriva logiken i Java eller i JavaScript.
 * Och för att beskriva logiken bör [JavaScript Use-API](use-api-javascript.md) och [Java Use-API](use-api-java.md) -sidorna hjälpa till.
 
@@ -261,7 +249,7 @@ För att underlätta med det undviker HTML-mallspråket automatiskt varje variab
 
 Anta följande `logic.js` fil:
 
-```
+```javascript
 use(function () {
     return {
         link:  "#my link's safe",
@@ -323,7 +311,7 @@ I det här avsnittet beskrivs några vanliga scenarier och hur du bäst löser d
 
 ### Läser in klientbibliotek {#loading-client-libraries}
 
-I HTML läses klientbibliotek in via en hjälpmall från AEM, som du kommer åt via [`data-sly-use`](block-statements.md#use). Det finns tre tillgängliga mallar i den här filen, som kan anropas via [`data-sly-call`](block-statements.md#template-call):
+I HTML läses klientbibliotek in via en hjälpmall från AEM, som du kommer åt via [`data-sly-use`](block-statements.md#use). Det finns tre mallar i den här filen som du kan anropa genom [`data-sly-call`](block-statements.md#template-call):
 
 * **`css`** - Läser bara in CSS-filerna för de refererade klientbiblioteken.
 * **`js`** - Läser bara in JavaScript-filer från de refererade klientbiblioteken.
@@ -371,7 +359,7 @@ I följande exempel visas hur logiken (som också kan skrivas i Java) kan använ
 <div data-sly-use.logic="logic.js" data-json="${logic.json}">...</div>
 ```
 
-```
+```javascript
 /* logic.js file: */
 use(function () {
     var myData = {
@@ -387,7 +375,7 @@ use(function () {
 
 Därifrån är det enkelt att föreställa sig hur ett JavaScript på klientsidan kan komma åt attributet och tolka JSON igen. Detta skulle till exempel vara motsvarande JavaScript som ska placeras i ett klientbibliotek:
 
-```
+```javascript
 var elements = document.querySelectorAll("[data-json]");
 for (var i = 0; i < elements.length; i++) {
     var obj = JSON.parse(elements[i].dataset.json);
