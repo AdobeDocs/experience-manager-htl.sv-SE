@@ -1,44 +1,60 @@
 ---
 title: HTL JavaScript Use-API
-seo-title: HTL JavaScript Use-API
-description: HTML-mallens språk - HTML - JavaScript Use-API aktiverar en HTML-fil för att komma åt hjälpkod som skrivits i JavaScript.
-seo-description: HTML-mallens språk - HTML - JavaScript Use-API aktiverar en HTML-fil för att komma åt hjälpkod som skrivits i JavaScript.
-uuid: 7ab34b10-30ac-44d6-926b-0234f52e5541
-contentOwner: User
-products: SG_EXPERIENCEMANAGER/HTL
-topic-tags: html-template-language
-content-type: reference
-discoiquuid: 18871af8-e44b-4eec-a483-fcc765dae58f
-mwpw-migration-script-version: 2017-10-12T21 46 58.665-0400
+description: HTML-mallspråket - HTML - JavaScript Use-API aktiverar en HTML-fil för att få åtkomst till hjälpkod som skrivits i JavaScript.
 translation-type: tm+mt
-source-git-commit: bd1962e25d152be4f1608d0a83d8d5b3e728b4aa
+source-git-commit: ee712ef61018b5e05ea052484e2a9a6b12e6c5c8
+workflow-type: tm+mt
+source-wordcount: '324'
+ht-degree: 0%
 
 ---
 
 
 # HTL JavaScript Use-API {#htl-javascript-use-api}
 
-Med HTML-mallens språk (HTL) JavaScript Use-API kan en HTML-fil få åtkomst till hjälpkod som skrivits i JavaScript. På så sätt kan all komplex affärslogik kapslas in i JavaScript-koden, medan HTML-koden endast hanterar direkt kodproduktion.
+HTML-mallspråket (HTL) JavaScript Use-API aktiverar en HTML-fil för att få åtkomst till hjälpkod som skrivits i JavaScript. På så sätt kan all komplex affärslogik kapslas in i JavaScript-koden, medan HTML-koden endast hanterar direkt kodproduktion.
+
+Följande konventioner används.
+
+```javascript
+/**
+ * In the following example '/libs/dep1.js' and 'dep2.js' are optional
+ * dependencies needed for this script's execution. Dependencies can
+ * be specified using an absolute path or a relative path to this
+ * script's own path.
+ *
+ * If no dependencies are needed the dependencies array can be omitted.
+ */
+use(['dep1.js', 'dep2.js'], function (Dep1, Dep2) {
+    // implement processing
+  
+    // define this Use object's behavior
+    return {
+        propertyName: propertyValue
+        functionName: function () {}
+    }
+});
+```
 
 ## Ett enkelt exempel {#a-simple-example}
 
 Vi definierar en komponent, `info`som finns på
 
-**`/apps/my-example/components/info`**
+`/apps/my-example/components/info`
 
 Den innehåller två filer:
 
 * **`info.js`**: en JavaScript-fil som definierar use-klassen.
-* `info.html`: en HTML-fil som definierar komponenten `info`. Den här koden använder funktionerna i `info.js` via API:t.
+* **`info.html`**: en HTML-fil som definierar komponenten `info`. Den här koden använder funktionerna i `info.js` via API:t.
 
 ### /apps/my-example/component/info/info.js {#apps-my-example-component-info-info-js}
 
 ```java
 "use strict";
 use(function () {
-    var info = {};    
+    var info = {};
     info.title = resource.properties["title"];
-    info.description = resource.properties["description"];    
+    info.description = resource.properties["description"];
     return info;
 });
 ```
@@ -52,9 +68,9 @@ use(function () {
 </div>
 ```
 
-Vi skapar också en innehållsnod som använder **`info`** komponenten på
+Vi skapar också en innehållsnod som använder `info` komponenten på
 
-**`/content/my-example`**, med egenskaper:
+`/content/my-example`, med egenskaper:
 
 * `sling:resourceType = "my-example/component/info"`
 * `title = "My Example"`
@@ -72,14 +88,14 @@ Här är den resulterande databasstrukturen:
         "info": {
           "info.html": {
             ...
-          }, 
+          },
           "info.js": {
             ...
           }
         }
       }
     }
- },     
+ },
  "content": {
     "my-example": {
       "sling:resourceType": "my-example/component/info",
@@ -99,18 +115,18 @@ Här är den resulterande databasstrukturen:
 </section>
 ```
 
-Motsvarande logik kan skrivas med följande ***JavaScript på*** serversidan, som finns i en `component.js` fil bredvid mallen:
+Motsvarande logik kan skrivas med följande JavaScript på serversidan, som finns i en `component.js` fil precis bredvid mallen:
 
-```
+```javascript
 use(function () {
     var Constants = {
         DESCRIPTION_PROP: "jcr:description",
         DESCRIPTION_LENGTH: 50
     };
- 
+
     var title = currentPage.getNavigationTitle() || currentPage.getTitle() || currentPage.getName();
     var description = properties.get(Constants.DESCRIPTION_PROP, "").substr(0, Constants.DESCRIPTION_LENGTH);
- 
+
     return {
         title: title,
         description: description
@@ -124,16 +140,16 @@ Detta försöker hämta `title` från olika källor och beskär beskrivningen ti
 
 Tänk dig att vi har en verktygsklass som redan är utrustad med smarta funktioner, som standardlogiken för navigeringsrubriken eller som klipper en sträng till en viss längd:
 
-```
+```javascript
 use(['../utils/MyUtils.js'], function (utils) {
     var Constants = {
         DESCRIPTION_PROP: "jcr:description",
         DESCRIPTION_LENGTH: 50
     };
- 
+
     var title = utils.getNavigationTitle(currentPage);
     var description = properties.get(Constants.DESCRIPTION_PROP, "").substr(0, Constants.DESCRIPTION_LENGTH);
- 
+
     return {
         title: title,
         description: description
@@ -145,24 +161,24 @@ use(['../utils/MyUtils.js'], function (utils) {
 
 Beroendemönstret kan också användas för att utöka logiken i en annan komponent (som vanligtvis är `sling:resourceSuperType` den aktuella komponenten).
 
-Föreställ dig att den överordnade komponenten redan tillhandahåller `title`och vi vill lägga till en **`description`** också:
+Föreställ dig att den överordnade komponenten redan tillhandahåller `title`och vi vill lägga till en `description` också:
 
-```
+```javascript
 use(['../parent-component/parent-component.js'], function (component) {
     var Constants = {
         DESCRIPTION_PROP: "jcr:description",
         DESCRIPTION_LENGTH: 50
     };
- 
+
     component.description = utils.shortenString(properties.get(Constants.DESCRIPTION_PROP, ""), Constants.DESCRIPTION_LENGTH);
- 
+
     return component;
 });
 ```
 
 ## Skicka parametrar till en mall {#passing-parameters-to-a-template}
 
-När det gäller programsatser som kan vara oberoende av komponenter kan det vara användbart att skicka parametrar till associerat Use-API. **`data-sly-template`**
+När det gäller programsatser som kan vara oberoende av komponenter kan det vara användbart att skicka parametrar till associerat Use-API. `data-sly-template`
 
 I vår komponent anropar vi en mall som finns i en annan fil:
 
@@ -179,17 +195,17 @@ Det här är mallen som finns i `template.html`:
 </template>
 ```
 
-Motsvarande logik kan skrivas med följande JavaScript på ***serversidan*** , som finns i en `template.js` fil bredvid mallfilen:
+Motsvarande logik kan skrivas med följande JavaScript på serversidan, som finns i en `template.js` fil precis bredvid mallfilen:
 
-```
+```javascript
 use(function () {
     var Constants = {
         DESCRIPTION_PROP: "jcr:description"
     };
- 
+
     var title = this.page.getNavigationTitle() || this.page.getTitle() || this.page.getName();
     var description = this.page.getProperties().get(Constants.DESCRIPTION_PROP, "").substr(0, this.descriptionLength);
- 
+
     return {
         title: title,
         description: description
