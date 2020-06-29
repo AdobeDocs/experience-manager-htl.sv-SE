@@ -1,30 +1,23 @@
 ---
 title: Kodexempel
-seo-title: Kodexempel för AEM HTML
 description: Kodexempel inklusive implementering av referensen till Web.Retail
-seo-description: Kodexempel inklusive implementering av referensen till Web.Retail
-uuid: 4c84532e-1cd0-4faf-b99c-1965557b5d15
-contentOwner: User
-products: SG_EXPERIENCEMANAGER/HTL
-topic-tags: html-template-language
-content-type: reference
-discoiquuid: bea6396e-13c4-4048-9a8a-e5d7c281deba
-mwpw-migration-script-version: 2017-10-12T21 46 58.665-0400
-index: y
-internal: n
-snippet: y
 translation-type: tm+mt
-source-git-commit: f0473c2d7c2fc22a63232565452558001a9fd99e
+source-git-commit: d7efae3d1b4d1bc22c63c21f544a99bf0ae4b3c9
+workflow-type: tm+mt
+source-wordcount: '107'
+ht-degree: 0%
 
 ---
 
 
-# Kodexempel{#code-samples}
+# Kodexempel {#code-samples}
 
 Följande är kodexempel för HTML:
 
-* [Implementering av referens för Vi.butik](https://helpx.adobe.com/experience-manager/6-4/sites/developing/using/we-retail.html)\
-   En AEM-webbplats som är helt implementerad med HTML.
+* [WKND-självstudiekurs](https://docs.adobe.com/content/help/en/experience-manager-learn/getting-started-wknd-tutorial-develop/overview.html) - Den här självstudiekursen går igenom implementeringen av en AEM-webbplats för ett fiktivt livsstilsmärke, WKND, och omfattar grundläggande ämnen som projektkonfiguration, kärnkomponenter, redigerbara mallar, klientbibliotek och komponentutveckling med Adobe Experience Manager Sites, som alla implementeras i HTML.
+* [HTL TodoMVC-exempel](https://github.com/Adobe-Marketing-Cloud/aem-sightly-sample-todomvc) - en AEM + HTML-implementering av den berömda övningen.
 
-* [HTL TodoMVC-exempel](https://github.com/Adobe-Marketing-Cloud/aem-sightly-sample-todomvc)\
-   En AEM + HTML-implementering av den berömda övningen.
+Fråga expertsessionerna:
+
+* [Jan 2015 HTML-session (introduktion till HTML)](http://scottsdigitalcommunity.blogspot.ca/2015/01/upcoming-sessions-of-ask-aem-community.html)
+* [Mars 2016 HTML-session (avancerad komponentutveckling)](http://scottsdigitalcommunity.blogspot.ca/2016/03/ask-aem-community-experts-deep-dive.html)
