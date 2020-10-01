@@ -1,10 +1,10 @@
 ---
-title: Översikt över AEM HTML
-description: Syftet med HTML som stöds av AEM är att erbjuda ett högproduktivt webbramverk på företagsnivå som ökar säkerheten och gör att HTML-utvecklare utan Java-kunskaper bättre kan delta i AEM-projekt.
+title: AEM HTML-översikt
+description: Syftet med HTML som stöds av AEM är att erbjuda ett högproduktivt webbramverk på företagsnivå som ökar säkerheten och gör att HTML-utvecklare utan Java-kunskaper bättre kan delta i AEM projekt.
 translation-type: tm+mt
-source-git-commit: d3426d87dce09ac34ff1aca431ff2bfad2f7134a
+source-git-commit: c7fa6014cd954a2ccb175e4c3a6be9deb83af890
 workflow-type: tm+mt
-source-wordcount: '662'
+source-wordcount: '665'
 ht-degree: 0%
 
 ---
@@ -12,9 +12,9 @@ ht-degree: 0%
 
 # Översikt {#overview}
 
-Syftet med HTML-mallspråk (HTL), som stöds av Adobe Experience Manager (AEM), är att erbjuda ett högproduktivt webbramverk på företagsnivå som ökar säkerheten och gör att HTML-utvecklare utan Java-kunskaper bättre kan delta i AEM-projekt.
+Syftet med HTML-mallspråk (HTL), som stöds av Adobe Experience Manager (AEM), är att erbjuda ett mycket produktivt webbramverk på företagsnivå som ökar säkerheten och gör att HTML-utvecklare utan Java-kunskaper bättre kan delta i AEM projekt.
 
-HTML-mallspråket introducerades med AEM 6.0 och ersätter JSP (JavaServer Pages) som det rekommenderade serversidesmallsystemet för HTML. För webbutvecklare som behöver bygga robusta företagswebbplatser kan HTML-mallspråket bidra till ökad säkerhet och effektivare utveckling.
+HTML-mallspråket är det rekommenderade och rekommenderade serversidesmallsystemet för HTML i AEM. HTML introducerades med AEM 6.0 och ersätter JSP (JavaServer Pages). För webbutvecklare som behöver bygga robusta företagswebbplatser kan HTML-mallspråket bidra till ökad säkerhet och effektivare utveckling.
 
 ## Ökad säkerhet {#increased-security}
 
@@ -30,15 +30,15 @@ Tack vare dessa funktioner kan HTML-utvecklare utan Java-kunskaper och med liten
 
 ## Minskade kostnader {#reduced-costs}
 
-Ökad säkerhet, förenklad utveckling och förbättrat teamsamarbete, innebär att AEM-projekt kan implementeras med minskad insats, snabbare time to market (TTM) och lägre total ägandekostnad.
+Ökad säkerhet, förenklad utveckling och förbättrat teamsamarbete, ger minskad AEM, kortare time-to-market och lägre total ägandekostnad.
 
-Av det som har observerats när Adobe.com-webbplatsen implementeras på nytt med HTML-mallspråket är att kostnaden och varaktigheten för projektet kan minskas med cirka 25 %.
+Det som har observerats när webbplatsen Adobe.com implementeras på nytt med HTML-mallspråket är att kostnaden och varaktigheten för projektet kan minskas med cirka 25 %.
 
 ![Effektiv ökning och kostnadsminskning](assets/chlimage_1.png)
 
 Diagrammet ovan visar följande effektivitetsförbättringar som kan göras möjliga av HTML:
 
-* **HTML/CSS/JS:** Eftersom HTML-utvecklarna kan redigera HTML-mallar direkt behöver inte frontsidorna implementeras separat från AEM-projektet längre, utan kan implementeras direkt i de faktiska AEM-komponenterna. Detta minskar antalet svåra iterationer med Java-utvecklare i full-stack.
+* **HTML/CSS/JS:** Eftersom HTML-utvecklarna direkt kan redigera HTML-mallar behöver inte längre frontenddesignen implementeras separat från det AEM projektet, utan kan implementeras direkt på de faktiska AEM komponenterna. Detta minskar antalet svåra iterationer med Java-utvecklare i full-stack.
 * **JSP / HTML:** Eftersom HTML inte kräver någon Java-kunskap och är enkel att skriva, kan alla utvecklare med HTML-expertis redigera mallarna.
 * **Java:** Tack vare det tydliga och lättanvända Use-API:t som tillhandahålls av HTL har gränssnittet med affärslogiken klargjorts, vilket även gynnar Java-utvecklingen generellt.
 
