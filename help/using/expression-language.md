@@ -2,9 +2,9 @@
 title: HTML-uttrycksspråk
 description: HTML-mallspråket använder ett uttrycksspråk för att komma åt de datastrukturer som innehåller de dynamiska elementen i HTML-utdata.
 translation-type: tm+mt
-source-git-commit: ee712ef61018b5e05ea052484e2a9a6b12e6c5c8
+source-git-commit: c7fa6014cd954a2ccb175e4c3a6be9deb83af890
 workflow-type: tm+mt
-source-wordcount: '1848'
+source-wordcount: '1854'
 ht-degree: 0%
 
 ---
@@ -54,7 +54,7 @@ I exemplet ovan visas också att Java-get-funktioner, som `getTitle()`exempelvis
 
 Variabelnamnen, som kallas identifierare, följer vissa regler. De måste börja med en bokstav (`A`-`Z` och `a`-`z`) eller ett understreck (`_`), och efterföljande tecken kan också vara siffror (`0`-`9`) eller kolon (`:`). Unicode-bokstäver som `å` och `ü` kan inte användas i identifierare.
 
-Eftersom kolontecknet (`:`) är vanligt i AEM-egenskapsnamn bör det understrykas att det är ett lämpligt identifierartecken:
+Eftersom kolontecknet (`:`) är vanligt i AEM egenskapsnamn, bör det understrykas att det är ett lämpligt identifierartecken:
 
 `${properties.jcr:title}`
 
@@ -194,7 +194,7 @@ Den här operatorn kan användas för att testa om ett av två villkor är uppfy
 
 När den logiska OR-operatorn returnerar den första variabeln som är sann, kan den också användas för att tillhandahålla reservvärden.
 
-Visa HTML-attribut på ett villkorligt sätt eftersom HTML tar bort attribut med värden som anges av uttryck som utvärderas till false eller till en tom sträng. I exemplet nedan visas **`properties.jcr:`** titeln om den finns och inte är tom, annars visas den **`properties.jcr:description`** om den finns och inte är tom. Annars visas meddelandet&quot;ingen rubrik eller beskrivning har angetts&quot;:
+Den kan också användas för att villkorligt visa HTML-attribut eftersom HTML tar bort attribut med värden som anges av uttryck som utvärderas som false eller till en tom sträng. I exemplet nedan visas **`properties.jcr:`** titeln om den finns och inte är tom, annars visas den **`properties.jcr:description`** om den finns och inte är tom. Annars visas meddelandet&quot;ingen rubrik eller beskrivning har angetts&quot;:
 
 ```xml
 <p>${properties.jcr:title || properties.jcr:description || "no title or description provided"}</p>
