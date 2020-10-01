@@ -2,9 +2,9 @@
 title: Komma igång med HTML
 description: HTML som stöds av AEM ersätter JSP som det rekommenderade och rekommenderade serversidesmallsystemet för HTML i AEM.
 translation-type: tm+mt
-source-git-commit: ee712ef61018b5e05ea052484e2a9a6b12e6c5c8
+source-git-commit: c7fa6014cd954a2ccb175e4c3a6be9deb83af890
 workflow-type: tm+mt
-source-wordcount: '2490'
+source-wordcount: '2471'
 ht-degree: 0%
 
 ---
@@ -12,7 +12,7 @@ ht-degree: 0%
 
 # Komma igång med HTML {#getting-started-with-htl}
 
-HTML-mallspråket (HTL) som stöds av Adobe Experience Manager (AEM) är det rekommenderade och rekommenderade serversidesmallsystemet för HTML i AEM. Det ersätter JSP (JavaServer Pages) som det användes i tidigare versioner av AEM.
+HTML-mallspråket (HTL) som stöds av Adobe Experience Manager (AEM) är det rekommenderade och rekommenderade serversidesmallsystemet för HTML i AEM. Den ersätter JSP (JavaServer Pages) som den användes i tidigare versioner av AEM.
 
 >[!NOTE]
 >
@@ -20,7 +20,7 @@ HTML-mallspråket (HTL) som stöds av Adobe Experience Manager (AEM) är det rek
 
 ## HTL över JSP {#htl-over-jsp}
 
-Vi rekommenderar att nya AEM-projekt använder HTML-mallspråket eftersom det ger flera fördelar jämfört med JSP. Men för befintliga projekt är en migrering bara meningsfull om den beräknas vara mindre ansträngning än att underhålla de befintliga JSP:erna under de kommande åren.
+Du bör använda HTML-mallspråket i nya AEM eftersom det ger flera fördelar jämfört med JSP. Men för befintliga projekt är en migrering bara meningsfull om den beräknas vara mindre ansträngning än att underhålla de befintliga JSP:erna under de kommande åren.
 
 Men att gå över till HTML är inte nödvändigtvis ett alternativ som är helt eller inget, eftersom komponenter skrivna i HTML är kompatibla med komponenter skrivna i JSP eller ESP. Det innebär att befintliga projekt utan problem kan använda HTML för nya komponenter, samtidigt som JSP för befintliga komponenter behålls.
 
@@ -33,13 +33,13 @@ Men att gå över till HTML är inte nödvändigtvis ett alternativ som är helt
 
 ### Frequently Asked Questions{#frequently-asked-questions}
 
-Innan vi börjar med HTML-mallspråket börjar vi med att svara på några frågor som rör JSP kontra HTML.
+Innan vi börjar med HTML-mallspråket börjar vi med att besvara några frågor som rör JSP kontra HTML-ämnet.
 
 **Har HTML några begränsningar som JSP inte har?** - HTML har inga begränsningar jämfört med JSP i den meningen att det som kan göras med JSP också ska vara möjligt med HTML. HTL är dock striktare genom design än JSP i flera aspekter, och vad som kan uppnås i en enda JSP-fil kan behöva separeras till en Java-klass eller en JavaScript-fil för att kunna nås i HTML. Detta är dock i allmänhet önskvärt för att säkerställa en bra avvägning mellan logiken och markeringen.
 
 **Stöder HTML JSP-taggbibliotek?** - Nej, men som visas i avsnittet [Läser in klientbibliotek](getting-started.md#loading-client-libraries) erbjuder [mall- och anropsprogramsatserna](block-statements.md#template-call) ett liknande mönster.
 
-**Kan HTML-funktionerna utökas i ett AEM-projekt?** Nej, det kan de inte. HTML har kraftfulla tilläggsmekanismer för återanvändning av logik - [Use-API](getting-started.md#use-api-for-accessing-logic) - och av kod ( [template- och call](block-statements.md#template-call) -programsatser), som kan användas för att modularisera koden för projekt.
+**Kan HTML-funktionerna utökas i ett AEM projekt?** Nej, det kan de inte. HTML har kraftfulla tilläggsmekanismer för återanvändning av logik - [Use-API](getting-started.md#use-api-for-accessing-logic) - och av kod ( [template- och call](block-statements.md#template-call) -programsatser), som kan användas för att modularisera koden för projekt.
 
 **Vilka är de viktigaste fördelarna med HTML jämfört med JSP?** - Säkerhet och projekteffektivitet är de viktigaste fördelarna som finns i [översikten](overview.md).
 
@@ -61,9 +61,9 @@ Här är ett första exempel som kan finnas som i en **`template.html`** fil:
 
 Två olika typer av syntaxer kan urskiljas:
 
-* **[Blocksatser](block-statements.md)**- För att villkorligt visa **&lt;h1>**-elementet används ett[`data-sly-test`](block-statements.md#test)HTML5-dataattribut. HTML innehåller flera sådana attribut, som gör att du kan koppla beteenden till ett HTML-element, och alla har prefix`data-sly`.
+* **[Blocksatser](block-statements.md)** - För att villkorligt visa **&lt;h1>** -elementet används ett [`data-sly-test`](block-statements.md#test) HTML5-dataattribut. HTML innehåller flera sådana attribut, som gör att du kan koppla beteenden till ett HTML-element, och alla har prefix `data-sly`.
 
-* **[Uttrycksspråk](expression-language.md)**- HTML-uttryck avgränsas med tecken`${`och`}`. Vid körning utvärderas dessa uttryck och deras värde matas in i den utgående HTML-strömmen.
+* **[Uttrycksspråk](expression-language.md)** - HTML-uttryck avgränsas med tecken `${` och `}`. Vid körning utvärderas dessa uttryck och deras värde matas in i den utgående HTML-strömmen.
 
 På de två länkarna ovan finns en detaljerad lista över funktioner som är tillgängliga för syntax.
 
@@ -110,12 +110,6 @@ och DIV-elementet kunde ha kommenterats med följande villkor:
     <p>${properties.jcr:description}</p>
 </div>
 ```
-
->[!NOTE]
->
->Elementet SLY introducerades med AEM 6.1 eller HTL 1.1.
->
->Innan dess måste attributet [`data-sly-unwrap`](block-statements.md) användas i stället.
 
 ### HTML-kommentarer {#htl-comments}
 
@@ -311,7 +305,7 @@ I det här avsnittet beskrivs några vanliga scenarier och hur du bäst löser d
 
 ### Läser in klientbibliotek {#loading-client-libraries}
 
-I HTML läses klientbibliotek in via en hjälpmall från AEM, som du kommer åt via [`data-sly-use`](block-statements.md#use). Det finns tre mallar i den här filen som du kan anropa genom [`data-sly-call`](block-statements.md#template-call):
+I HTML läses klientbibliotek in via en hjälpmall från AEM, som du kan komma åt via [`data-sly-use`](block-statements.md#use). Det finns tre mallar i den här filen som du kan anropa genom [`data-sly-call`](block-statements.md#template-call):
 
 * **`css`** - Läser bara in CSS-filerna för de refererade klientbiblioteken.
 * **`js`** - Läser bara in JavaScript-filer från de refererade klientbiblioteken.
