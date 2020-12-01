@@ -14,5 +14,5 @@ ht-degree: 0%
 
 Följande är HTML-standarderna:
 
-* [HTML-specifikationen](https://github.com/adobe/htl-spec) - för språkadvokater, den formella syntaxen och funktionsbeskrivningen.
-* [HTL TCK](https://github.com/adobe/htl-tck) - en serie tester för att verifiera språkets kompatibilitet.
+* [HTML-specifikationen](https://github.com/adobe/htl-spec)  - För språkadvokater, den formella syntaxen och funktionsbeskrivningen.
+* [HTL TCK](https://github.com/adobe/htl-tck)  - en serie tester för att bekräfta kompatibiliteten för språket.
