@@ -38,14 +38,14 @@ use(['dep1.js', 'dep2.js'], function (Dep1, Dep2) {
 
 ## Ett enkelt exempel {#a-simple-example}
 
-Vi definierar en komponent, `info`som finns på
+Vi definierar en komponent, `info`, som finns på
 
 `/apps/my-example/components/info`
 
 Den innehåller två filer:
 
-* **`info.js`**: en JavaScript-fil som definierar use-klassen.
-* **`info.html`**: en HTML-fil som definierar komponenten `info`. Den här koden använder funktionerna i `info.js` via API:t.
+* **`info.js`**: en JavaScript-fil som definierar klassen use.
+* **`info.html`**: en HTML-fil som definierar komponenten  `info`. Den här koden använder funktionerna i `info.js` via use-API.
 
 ### /apps/my-example/component/info/info.js {#apps-my-example-component-info-info-js}
 
@@ -68,7 +68,7 @@ use(function () {
 </div>
 ```
 
-Vi skapar också en innehållsnod som använder `info` komponenten på
+Vi skapar också en innehållsnod som använder komponenten `info` på
 
 `/content/my-example`, med egenskaper:
 
@@ -115,7 +115,7 @@ Här är den resulterande databasstrukturen:
 </section>
 ```
 
-Motsvarande logik kan skrivas med följande JavaScript på serversidan, som finns i en `component.js` fil precis bredvid mallen:
+Motsvarande logik kan skrivas med följande JavaScript på serversidan, som finns i en `component.js`-fil precis bredvid mallen:
 
 ```javascript
 use(function () {
@@ -134,7 +134,7 @@ use(function () {
 });
 ```
 
-Detta försöker hämta `title` från olika källor och beskär beskrivningen till 50 tecken.
+Detta försöker ta `title` från olika källor och beskär beskrivningen till 50 tecken.
 
 ## Beroenden {#dependencies}
 
@@ -159,9 +159,9 @@ use(['../utils/MyUtils.js'], function (utils) {
 
 ## Utöka {#extending}
 
-Beroendemönstret kan också användas för att utöka logiken i en annan komponent (som vanligtvis är `sling:resourceSuperType` den aktuella komponenten).
+Beroendemönstret kan också användas för att utöka logiken för en annan komponent (som vanligtvis är `sling:resourceSuperType` för den aktuella komponenten).
 
-Föreställ dig att den överordnade komponenten redan tillhandahåller `title`och vi vill lägga till en `description` också:
+Föreställ dig att den överordnade komponenten redan tillhandahåller `title`, och vi vill även lägga till en `description`:
 
 ```javascript
 use(['../parent-component/parent-component.js'], function (component) {
@@ -178,7 +178,7 @@ use(['../parent-component/parent-component.js'], function (component) {
 
 ## Skicka parametrar till en mall {#passing-parameters-to-a-template}
 
-När det gäller programsatser som kan vara oberoende av komponenter kan det vara användbart att skicka parametrar till associerat Use-API. `data-sly-template`
+När det gäller `data-sly-template`-satser som kan vara oberoende av komponenter, kan det vara användbart att skicka parametrar till associerat Use-API.
 
 I vår komponent anropar vi en mall som finns i en annan fil:
 
@@ -195,7 +195,7 @@ Det här är mallen som finns i `template.html`:
 </template>
 ```
 
-Motsvarande logik kan skrivas med följande JavaScript på serversidan, som finns i en `template.js` fil precis bredvid mallfilen:
+Motsvarande logik kan skrivas med följande JavaScript på serversidan, som finns i en `template.js`-fil precis bredvid mallfilen:
 
 ```javascript
 use(function () {
@@ -213,4 +213,4 @@ use(function () {
 });
 ```
 
-De parametrar som skickas anges för `this` nyckelordet.
+De parametrar som skickas anges för nyckelordet `this`.
