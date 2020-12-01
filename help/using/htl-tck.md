@@ -1,6 +1,6 @@
 ---
 title: HTL TCK
-description: HTL är det officiella serversidesmallsystemet för AEM
+description: HTML är det officiella serversidesmallsystemet för AEM
 translation-type: tm+mt
 source-git-commit: d7efae3d1b4d1bc22c63c21f544a99bf0ae4b3c9
 workflow-type: tm+mt
@@ -14,9 +14,9 @@ ht-degree: 0%
 
 ## Vad är HTL TCK?
 
-HTML- [mallspråket](overview.md), som tidigare kallades Sightly, introducerades med [Adobe Experience Manager](http://www.adobe.com/solutions/web-experience-management.html) 6.0 och ersätter JSP (Java Server Pages) som det rekommenderade serversidans mallsystem för HTML.
+[HTML-mallspråket](overview.md), som tidigare kallades Sightly, introducerades med [Adobe Experience Manager](http://www.adobe.com/solutions/web-experience-management.html) 6.0 och ersätter JSP (Java Server Pages) som det rekommenderade och rekommenderade serverbaserade mallsystemet för HTML.
 
-Kompatibilitetspaket för HTML-mallspråk - HTL TCK - innehåller en serie tester som är avsedda att certifiera att en HTML-implementering överensstämmer med den officiella [språkspecifikationen](https://github.com/adobe/htl-spec).
+Kompatibilitetspaket för HTML-mallspråk - HTL TCK - innehåller en serie tester som ska certifiera att en HTML-implementering uppfyller den officiella [språkspecifikationen](https://github.com/adobe/htl-spec).
 
 ## Mer information
 
