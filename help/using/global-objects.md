@@ -12,7 +12,7 @@ ht-degree: 0%
 
 # Globala HTML-objekt {#htl-global-objects}
 
-Utan att behöva ange något ger HTML åtkomst till alla objekt som var vanliga i JSP efter att ha inkluderat `global.jsp`. Dessa objekt är utöver de objekt som kan introduceras via [Use-API](use-api.md).
+Utan att behöva ange något ger HTML åtkomst till alla objekt som var vanliga i JSP efter att ha inkluderat `global.jsp`. Dessa objekt är utöver alla objekt som kan introduceras via [Use-API](use-api.md).
 
 ## Antal objekt {#enumerable-objects}
 
@@ -58,7 +58,7 @@ De mest användbara variablerna i tabellen nedan är markerade med fet stil.
 
 ## JavaScript-baserade objekt {#javascript-backed-objects}
 
-Det går att backa HTML-logik med JavaScript. Den rekommenderade eller rekommenderade metoden är dock att använda [Sling Models.](https://sling.apache.org/documentation/bundles/models.html)
+Det går att backa HTML-logik med JavaScript. Rekommenderad eller rekommenderad metod är emellertid att använda [Sling Models.](https://sling.apache.org/documentation/bundles/models.html)
 
 <!-- 
 
