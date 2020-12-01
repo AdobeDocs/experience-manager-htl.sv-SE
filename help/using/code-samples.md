@@ -14,8 +14,8 @@ ht-degree: 0%
 
 Följande är kodexempel för HTML:
 
-* [WKND-självstudiekurs](https://docs.adobe.com/content/help/en/experience-manager-learn/getting-started-wknd-tutorial-develop/overview.html) - Den här självstudiekursen går igenom implementeringen av en AEM-webbplats för ett fiktivt livsstilsmärke, WKND, och omfattar grundläggande ämnen som projektkonfiguration, kärnkomponenter, redigerbara mallar, klientbibliotek och komponentutveckling med Adobe Experience Manager Sites, som alla implementeras i HTML.
-* [HTL TodoMVC-exempel](https://github.com/Adobe-Marketing-Cloud/aem-sightly-sample-todomvc) - en AEM + HTML-implementering av den berömda övningen.
+* [WKND-självstudiekurs](https://docs.adobe.com/content/help/en/experience-manager-learn/getting-started-wknd-tutorial-develop/overview.html)  - Den här självstudiekursen går igenom implementeringen av en AEM webbplats för ett fiktivt livsstilsmärke, WKND, och handlar om grundläggande ämnen som projektkonfiguration, kärnkomponenter, redigerbara mallar, klientbibliotek och komponentutveckling med Adobe Experience Manager Sites, som alla är implementerade i HTML.
+* [HTL TodoMVC-exempel](https://github.com/Adobe-Marketing-Cloud/aem-sightly-sample-todomvc)  - en AEM + HTML-implementering av den kända övningen.
 
 Fråga expertsessionerna:
 
