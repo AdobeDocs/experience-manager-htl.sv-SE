@@ -14,4 +14,4 @@ ht-degree: 0%
 
 HTML-mallspråket (HTL), [tidigare Sightly,](update.md) introducerades med Adobe Experience Manager 6.0 och är det rekommenderade serverplatsmallsystemet för HTML i stället för JSP (JavaServer Pages).
 
-Den fullständiga HTML-specifikationen, som definierar syntaxen och språkets beteende, finns i [Open Source Git-databasen](https://github.com/adobe/htl-spec)
+Den fullständiga HTML-specifikationen, som definierar syntaxen och språkets beteende, finns i dess [Open Source Git-databas](https://github.com/adobe/htl-spec)
