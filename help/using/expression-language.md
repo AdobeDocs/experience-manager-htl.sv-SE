@@ -2,7 +2,7 @@
 title: HTML-uttrycksspråk
 description: HTML-mallspråket använder ett uttrycksspråk för att komma åt de datastrukturer som innehåller de dynamiska elementen i HTML-utdata.
 translation-type: tm+mt
-source-git-commit: c7fa6014cd954a2ccb175e4c3a6be9deb83af890
+source-git-commit: f7e46aaac2a4b51d7fa131ef46692ba6be58d878
 workflow-type: tm+mt
 source-wordcount: '1854'
 ht-degree: 0%
@@ -194,7 +194,7 @@ Den här operatorn kan användas för att testa om ett av två villkor är uppfy
 
 När den logiska OR-operatorn returnerar den första variabeln som är sann, kan den också användas för att tillhandahålla reservvärden.
 
-Den kan också användas för att villkorligt visa HTML-attribut eftersom HTML tar bort attribut med värden som anges av uttryck som utvärderas som false eller till en tom sträng. I exemplet nedan visas **`properties.jcr:`**-titeln om den finns och inte är tom, annars visas **`properties.jcr:description`** som &lt;a1/> om den finns och inte är tom. Annars visas meddelandet&quot;ingen rubrik eller beskrivning har angetts&quot;:
+Den kan också användas för att villkorligt visa HTML-attribut eftersom HTML tar bort attribut med värden som anges av uttryck som utvärderas som false eller till en tom sträng. I exemplet nedan visas **`properties.jcr:`**-titeln om den finns och inte är tom, annars visas **`properties.jcr:description`** som  om den finns och inte är tom. Annars visas meddelandet&quot;ingen rubrik eller beskrivning har angetts&quot;:
 
 ```xml
 <p>${properties.jcr:title || properties.jcr:description || "no title or description provided"}</p>
