@@ -2,7 +2,7 @@
 title: Adobe Experience Manager HTML - översikt
 description: Syftet med HTML som stöds av AEM är att erbjuda ett högproduktivt webbramverk på företagsnivå som ökar säkerheten och gör att HTML-utvecklare utan Java-kunskaper bättre kan delta i AEM projekt.
 translation-type: tm+mt
-source-git-commit: 88f6ad56a8d8f704b51aa84765de8da15e6c594e
+source-git-commit: f7e46aaac2a4b51d7fa131ef46692ba6be58d878
 workflow-type: tm+mt
 source-wordcount: '667'
 ht-degree: 0%
