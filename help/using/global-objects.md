@@ -2,7 +2,7 @@
 title: Globala HTML-objekt
 description: Utan att behöva ange något ger HTML åtkomst till alla objekt som var vanliga i JSP efter att global.jsp inkluderats.
 translation-type: tm+mt
-source-git-commit: ee712ef61018b5e05ea052484e2a9a6b12e6c5c8
+source-git-commit: f7e46aaac2a4b51d7fa131ef46692ba6be58d878
 workflow-type: tm+mt
 source-wordcount: '220'
 ht-degree: 0%
