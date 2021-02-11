@@ -2,7 +2,7 @@
 title: Vad är HTML?
 description: 'HTML-mallspråk – HTL – är det mallsystem på serversidan som rekommenderas av Adobe Experience Manager för HTML. '
 translation-type: tm+mt
-source-git-commit: c7fa6014cd954a2ccb175e4c3a6be9deb83af890
+source-git-commit: f7e46aaac2a4b51d7fa131ef46692ba6be58d878
 workflow-type: tm+mt
 source-wordcount: '181'
 ht-degree: 8%
