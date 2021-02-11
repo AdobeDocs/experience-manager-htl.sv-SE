@@ -2,7 +2,7 @@
 title: HTML-blocksatser
 description: HTML-blocksatser (Template Language) är anpassade dataattribut som läggs till direkt i befintlig HTML.
 translation-type: tm+mt
-source-git-commit: 2336ce8860056f5bc6470b23ee4cda135f7107d8
+source-git-commit: f7e46aaac2a4b51d7fa131ef46692ba6be58d878
 workflow-type: tm+mt
 source-wordcount: '1555'
 ht-degree: 1%
