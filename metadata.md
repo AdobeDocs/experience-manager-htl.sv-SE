@@ -1,18 +1,14 @@
 ---
-product: Adobe Experience Manager
-git-repo: https://github.com/AdobeDocs/experience-manager-htl.en
+solution: Experience Manager
+type: Dokumentation
+product: adobe experience manager
+git-repo: https://git.corp.adobe.com/AdobeDocs/experience-manager-htl.sv-SE
 index: y
-solution-title: Lär dig mer och support för HTML
-solution-hub-url: https://docs.adobe.com/content/help/en/experience-manager-cloud-service/sites/home.html
-getting-started-title: Komma igång med utveckling för AEM
-getting-started-url: https://docs.adobe.com/content/help/en/experience-manager-cloud-service/core-concepts/home.html
-tutorials-title: AEM-självstudiekurser
-tutorials-url: https://docs.adobe.com/content/help/en/experience-manager-learn/cloud-service/overview.html
 translation-type: tm+mt
-source-git-commit: d3426d87dce09ac34ff1aca431ff2bfad2f7134a
+source-git-commit: 5b88f6255534ef5af0958681c80303ab3da112b5
 workflow-type: tm+mt
-source-wordcount: '139'
-ht-degree: 17%
+source-wordcount: '108'
+ht-degree: 0%
 
 ---
 
@@ -34,6 +30,9 @@ metadata.md
 * `product`
 * `git-repo`
 * `index: y`
+
+Används inte längre:
+
 * `solution-title`
 * `solution-hub-url`
 * `getting-started-title`
@@ -52,4 +51,4 @@ Artikel
 * `description`
 * `index: n` (endast för tidigare versioner av komponenter)
 
-Mer information om metadata finns i den [interna redigeringsguiden.](https://docs.adobe.com/help/en/collaborative-doc-instructions/collaboration-guide/markdown/metadata.html#solution-metadata)
+Mer information om metadata finns i den interna redigeringsguiden för [.](https://docs.adobe.com/help/en/collaborative-doc-instructions/collaboration-guide/markdown/metadata.html#solution-metadata)
