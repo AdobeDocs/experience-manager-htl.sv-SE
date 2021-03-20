@@ -3,11 +3,14 @@ sub-product: Adobe Experience Manager HTL
 user-guide-title: Adobe Experience Manager HTL
 breadcrumb-title: HTML-guide
 user-guide-description: Använd HTML-mallspråket (HTL) för att skapa ett företagsbaserat webbramverk.
+feature-set: Experience Manager
+feature: Utvecklarverktyg
+role: Developer
 translation-type: tm+mt
-source-git-commit: 5d98000895461141ff7601c809b7085f89e6bb8b
+source-git-commit: 5b88f6255534ef5af0958681c80303ab3da112b5
 workflow-type: tm+mt
-source-wordcount: '68'
-ht-degree: 4%
+source-wordcount: '71'
+ht-degree: 5%
 
 ---
 
