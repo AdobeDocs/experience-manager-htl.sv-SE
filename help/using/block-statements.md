@@ -1,20 +1,19 @@
 ---
 title: HTML-blocksatser
 description: HTML-blocksatser (Template Language) är anpassade dataattribut som läggs till direkt i befintlig HTML.
-translation-type: tm+mt
-source-git-commit: f7e46aaac2a4b51d7fa131ef46692ba6be58d878
+exl-id: a517dcef-ab7a-4d4c-a1a9-2e57aad034f7
+source-git-commit: 89b9e89254f341e74f1a5a7b99735d2e69c8a91e
 workflow-type: tm+mt
 source-wordcount: '1555'
 ht-degree: 1%
 
 ---
 
-
 # HTML-blocksatser {#htl-block-statements}
 
 HTML-blocksatser (Template Language) är anpassade `data`-attribut som läggs till direkt i befintlig HTML. Detta gör det enkelt och smidigt att kommentera en prototyplös statisk HTML-sida och konvertera den till en fungerande dynamisk mall utan att HTML-kodens giltighet bryts.
 
-## Blocköversikt {#overview}
+## Blockera översikt {#overview}
 
 HTML-blockplugin-program definieras av `data-sly-*`-attribut som angetts för HTML-element. Elementen kan ha en avslutande tagg eller vara självavslutande. Attribut kan ha värden (som kan vara statiska strängar eller uttryck) eller helt enkelt vara booleska attribut (utan värde).
 
@@ -109,7 +108,7 @@ Initiera en annan HTML-mall som sedan kan anropas med `data-sly-call`:
 >* [JavaScript Use-API](use-api-javascript.md)
 
 
-#### dataanvändarvänligt med resurser {#data-sly-use-with-resources}
+#### datadriven användning med resurser {#data-sly-use-with-resources}
 
 Detta gör att resurser kan hämtas direkt i HTML med `data-sly-use` och kräver inte att du skriver kod för att få den.
 
@@ -125,7 +124,7 @@ Till exempel:
 >
 >Se även avsnittet [Sökväg krävs inte alltid.](#path-not-required)
 
-### ta bort {#unwrap}
+### unwrap {#unwrap}
 
 `data-sly-unwrap` tar bort värdelementet från den genererade koden samtidigt som innehållet behålls. Detta gör att element som krävs som en del av HTML-presentationslogiken kan uteslutas, men som inte är önskade i det faktiska resultatet.
 
@@ -188,7 +187,7 @@ likvärdigt med
 
 Båda visar värdet `jcr:description` som stycketext. Fördelen med den andra metoden är att den tillåter den diskreta kommenteringen av HTML samtidigt som det statiska platshållarinnehållet behålls från den ursprungliga designern.
 
-### attribut {#attribute}
+### attribute {#attribute}
 
 `data-sly-attribute` lägger till attribut i värdelementet.
 
@@ -379,7 +378,7 @@ En enkel resurs är:
 <article data-sly-resource="path/to/resource"></article>
 ```
 
-#### Sökvägen krävs inte alltid {#path-not-required}
+#### Sökväg krävs inte alltid {#path-not-required}
 
 Observera att du inte behöver använda en sökväg med `data-sly-resource` om du redan har resursen. Om du redan har resursen kan du använda den direkt.
 
@@ -463,9 +462,9 @@ cssClassName='className'}"></article>
 
 >[!NOTE]
 >
->AEM erbjuder tydlig och enkel logik som styr de dekorationstaggar som omsluter de inkluderade elementen. Mer information finns i [Dekoration Tag](https://docs.adobe.com/content/help/en/experience-manager-65/developing/components/decoration-tag.html) i dokumentationen för komponenter under utveckling.
+>AEM erbjuder tydlig och enkel logik som styr de dekorationstaggar som omsluter de inkluderade elementen. Mer information finns i [Dekoration Tag](https://experienceleague.adobe.com/docs/experience-manager-cloud-service/implementing/developing/full-stack/components-templates/decoration-tag.html) i dokumentationen för komponenter under utveckling.
 
-### ta med {#include}
+### include {#include}
 
 `data-sly-include` ersätter innehållet i host-elementet med koden som genereras av den angivna HTML-mallfilen (HTL, JSP, ESP osv.) när den bearbetas av motsvarande mallmotor. Återgivningssammanhanget för den inkluderade filen kommer inte att omfatta den aktuella HTML-kontexten (den för den inkluderade filen). För att HTML-filer ska kunna inkluderas måste därför aktuell `data-sly-use` upprepas i den inkluderade filen (i så fall är det oftast bättre att använda `data-sly-template` och `data-sly-call`)
 
@@ -534,7 +533,7 @@ public class ProductSettings {
 }
 ```
 
-### mall och ring {#template-call}
+### mall och samtal {#template-call}
 
 Mallblock kan användas som funktionsanrop: i sin deklaration kan de hämta parametrar som sedan kan skickas när de anropas. De tillåter även rekursion.
 

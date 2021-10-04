@@ -1,14 +1,13 @@
 ---
 title: HTML-uttrycksspråk
 description: HTML-mallspråket använder ett uttrycksspråk för att komma åt de datastrukturer som innehåller de dynamiska elementen i HTML-utdata.
-translation-type: tm+mt
-source-git-commit: f7e46aaac2a4b51d7fa131ef46692ba6be58d878
+exl-id: 57e3961b-8c84-4d56-a049-597c7b277448
+source-git-commit: 89b9e89254f341e74f1a5a7b99735d2e69c8a91e
 workflow-type: tm+mt
-source-wordcount: '1854'
+source-wordcount: '1852'
 ht-degree: 0%
 
 ---
-
 
 # HTML-uttrycksspråk {#htl-expression-language}
 
@@ -128,7 +127,7 @@ som resulterar i följande utdata eftersom HTML använder kontextspecifik escape
 <p title="it&#39;s great, she said &#34;yes!&#34;">...</p>
 ```
 
-### Matriser {#arrays}
+### Arrayer {#arrays}
 
 En array är en sorterad uppsättning värden som kan refereras till med ett namn och ett index. Elementtyperna kan blandas.
 
@@ -241,7 +240,7 @@ Relationsoperatorer stöder bara operander som är tal. För alla andra typer vi
 
 `${varOne <= varTwo}` returneras  `true` om  `varOne` är mindre eller lika med  `varTwo`.
 
-### Grupperingsparenteser {#grouping-parentheses}
+### Gruppera parenteser {#grouping-parentheses}
 
 Grupperingsoperatorn `()` styr prioriteten för utvärdering i uttryck.
 
@@ -286,7 +285,7 @@ Alternativ som ersätter de uppräknade platshållarna, {*n*}, med motsvarande v
 ${'Page {0} of {1}' @ format=[current, total]}
 ```
 
-## URL-manipulering {#url-manipulation}
+## URL-hantering {#url-manipulation}
 
 Det finns en ny uppsättning URL-ändringar.
 
@@ -337,7 +336,7 @@ I följande exempel visas att formatet anges först och sedan det värde som beh
 
 ### Internationalisering {#internationalization}
 
-Översätter strängen till språket i den aktuella *källan* (se nedan) med den aktuella [ordlistan](https://docs.adobe.com/content/help/en/experience-manager-65/developing/components/internationalization/i18n-translator.html). Om ingen översättning hittas används den ursprungliga strängen.
+Översätter strängen till språket i den aktuella *källan* (se nedan) med den aktuella [ordlistan](https://experienceleague.adobe.com/docs/experience-manager-65/developing/components/internationalization/i18n-translator.html). Om ingen översättning hittas används den ursprungliga strängen.
 
 ```xml
 ${'Page' @ i18n}
