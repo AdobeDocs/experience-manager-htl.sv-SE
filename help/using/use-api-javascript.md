@@ -1,18 +1,17 @@
 ---
 title: HTL JavaScript Use-API
-description: HTML-mallspråket - HTML - JavaScript Use-API aktiverar en HTML-fil för att få åtkomst till hjälpkod som skrivits i JavaScript.
-translation-type: tm+mt
-source-git-commit: f7e46aaac2a4b51d7fa131ef46692ba6be58d878
+description: Lär dig hur JavaScript use-API:t för JavaScript-mallar (HTL) används för att få åtkomst till hjälpkod som skrivits i JavaScript.
+exl-id: e98bfbd5-fa64-48c7-bd14-477d4c5e1788
+source-git-commit: 7b53eff0652f650ffb8caae0e69aa349b5c548eb
 workflow-type: tm+mt
-source-wordcount: '324'
+source-wordcount: '326'
 ht-degree: 0%
 
 ---
 
-
 # HTL JavaScript Use-API {#htl-javascript-use-api}
 
-HTML-mallspråket (HTL) JavaScript Use-API aktiverar en HTML-fil för att få åtkomst till hjälpkod som skrivits i JavaScript. På så sätt kan all komplex affärslogik kapslas in i JavaScript-koden, medan HTML-koden endast hanterar direkt kodproduktion.
+Med HTML (HTML Template Language) JavaScript Use-API kan en HTML-fil få åtkomst till hjälpkod som skrivits i JavaScript. På så sätt kan all komplex affärslogik kapslas in i JavaScript-koden, medan HTML-koden endast hanterar direkt kodproduktion.
 
 Följande konventioner används.
 
@@ -38,14 +37,14 @@ use(['dep1.js', 'dep2.js'], function (Dep1, Dep2) {
 
 ## Ett enkelt exempel {#a-simple-example}
 
-Vi definierar en komponent, `info`, som finns på
+Vi definierar en komponent, `info`, finns på
 
 `/apps/my-example/components/info`
 
 Den innehåller två filer:
 
 * **`info.js`**: en JavaScript-fil som definierar klassen use.
-* **`info.html`**: en HTML-fil som definierar komponenten  `info`. Den här koden använder funktionerna i `info.js` via use-API.
+* **`info.html`**: en HTML-fil som definierar komponenten `info`. Den här koden använder funktionerna i `info.js` via use-API.
 
 ### /apps/my-example/component/info/info.js {#apps-my-example-component-info-info-js}
 
@@ -68,7 +67,7 @@ use(function () {
 </div>
 ```
 
-Vi skapar också en innehållsnod som använder komponenten `info` på
+Vi skapar också en innehållsnod som använder `info` komponent vid
 
 `/content/my-example`, med egenskaper:
 
@@ -115,7 +114,7 @@ Här är den resulterande databasstrukturen:
 </section>
 ```
 
-Motsvarande logik kan skrivas med följande JavaScript på serversidan, som finns i en `component.js`-fil precis bredvid mallen:
+Motsvarande logik kan skrivas med följande JavaScript på serversidan, som finns i en `component.js` -fil intill mallen:
 
 ```javascript
 use(function () {
@@ -134,7 +133,7 @@ use(function () {
 });
 ```
 
-Detta försöker ta `title` från olika källor och beskär beskrivningen till 50 tecken.
+Det här försöker ta `title` från olika källor och beskär beskrivningen till 50 tecken.
 
 ## Beroenden {#dependencies}
 
@@ -159,9 +158,9 @@ use(['../utils/MyUtils.js'], function (utils) {
 
 ## Utöka {#extending}
 
-Beroendemönstret kan också användas för att utöka logiken för en annan komponent (som vanligtvis är `sling:resourceSuperType` för den aktuella komponenten).
+Beroendemönstret kan också användas för att utöka logiken i en annan komponent (vilket vanligtvis är `sling:resourceSuperType` för den aktuella komponenten).
 
-Föreställ dig att den överordnade komponenten redan tillhandahåller `title`, och vi vill även lägga till en `description`:
+Tänk dig att den överordnade komponenten redan innehåller `title`och vi vill lägga till en `description` samt
 
 ```javascript
 use(['../parent-component/parent-component.js'], function (component) {
@@ -178,7 +177,7 @@ use(['../parent-component/parent-component.js'], function (component) {
 
 ## Skicka parametrar till en mall {#passing-parameters-to-a-template}
 
-När det gäller `data-sly-template`-satser som kan vara oberoende av komponenter, kan det vara användbart att skicka parametrar till associerat Use-API.
+Om `data-sly-template` -programsatser som kan vara oberoende av komponenter kan det vara användbart att skicka parametrar till associerat Use-API.
 
 I vår komponent anropar vi en mall som finns i en annan fil:
 
@@ -186,7 +185,7 @@ I vår komponent anropar vi en mall som finns i en annan fil:
 <section class="component-name" data-sly-use.tmpl="template.html" data-sly-call="${tmpl.templateName @ page=currentPage}"></section>
 ```
 
-Det här är mallen som finns i `template.html`:
+Sedan finns mallen i `template.html`:
 
 ```xml
 <template data-sly-template.templateName="${@ page}" data-sly-use.tmpl="${'template.js' @ page=page, descriptionLength=50}">
@@ -195,7 +194,7 @@ Det här är mallen som finns i `template.html`:
 </template>
 ```
 
-Motsvarande logik kan skrivas med följande JavaScript på serversidan, som finns i en `template.js`-fil precis bredvid mallfilen:
+Motsvarande logik kan skrivas med följande JavaScript på serversidan, som finns i en `template.js` -fil intill mallfilen:
 
 ```javascript
 use(function () {
@@ -213,4 +212,4 @@ use(function () {
 });
 ```
 
-De parametrar som skickas anges för nyckelordet `this`.
+De parametrar som skickas anges på `this` nyckelord.

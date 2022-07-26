@@ -1,28 +1,27 @@
 ---
-title: Globala HTML-objekt
-description: Utan att behöva ange något ger HTML åtkomst till alla objekt som var vanliga i JSP efter att global.jsp inkluderats.
-translation-type: tm+mt
-source-git-commit: f7e46aaac2a4b51d7fa131ef46692ba6be58d878
+title: HTML-globala objekt
+description: Lär dig mer om uppräkningsbara objekt, Java-baserade objekt och JavaScript-baserade objekt. Hitta variabelnamnen och beskrivningarna för de här globala HTML-objekten som används i AEM.
+exl-id: ca590b92-f1b3-4e44-a04a-a2c10dff256f
+source-git-commit: 7b53eff0652f650ffb8caae0e69aa349b5c548eb
 workflow-type: tm+mt
-source-wordcount: '220'
+source-wordcount: '223'
 ht-degree: 0%
 
 ---
 
-
 # Globala HTML-objekt {#htl-global-objects}
 
-Utan att behöva ange något ger HTML åtkomst till alla objekt som var vanliga i JSP efter att ha inkluderat `global.jsp`. Dessa objekt är utöver alla objekt som kan introduceras via [Use-API](use-api.md).
+Utan att behöva ange något ger HTML åtkomst till alla objekt som var vanliga i JSP efter att ha inkluderat `global.jsp`. De här objekten är utöver de objekt som kan introduceras via [Use-API](use-api.md).
 
 ## Antal objekt {#enumerable-objects}
 
-Dessa objekt ger smidig åtkomst till ofta använd information. Deras innehåll kan nås med punktnotationen och kan itereras igenom med `data-sly-list` eller `data-sly-repeat`.
+Dessa objekt ger smidig åtkomst till ofta använd information. Deras innehåll kan nås med punktnotationen och kan itereras igenom med hjälp av `data-sly-list` eller `data-sly-repeat`.
 
 | Variabelnamn | Beskrivning |
 |--- |--- |
-| `properties` | Lista över egenskaper för den aktuella resursen. Bakas av [org.apache.sling.api.resource.ValueMap](https://helpx.adobe.com/experience-manager/6-5/sites/developing/using/reference-materials/javadoc/org/apache/sling/api/resource/ValueMap.html) |
-| `pageProperties` | Lista över sidegenskaper för den aktuella sidan. Bakas av [org.apache.sling.api.resource.ValueMap](https://helpx.adobe.com/experience-manager/6-5/sites/developing/using/reference-materials/javadoc/org/apache/sling/api/resource/ValueMap.html) |
-| `inheritedPageProperties` | Lista över ärvda sidegenskaper för den aktuella sidan. Bakas av [org.apache.sling.api.resource.ValueMap](https://helpx.adobe.com/experience-manager/6-5/sites/developing/using/reference-materials/javadoc/org/apache/sling/api/resource/ValueMap.html) |
+| `properties` | Lista över egenskaper för den aktuella resursen. Bakåt av [org.apache.sling.api.resource.ValueMap](https://helpx.adobe.com/experience-manager/6-5/sites/developing/using/reference-materials/javadoc/org/apache/sling/api/resource/ValueMap.html) |
+| `pageProperties` | Lista över sidegenskaper för den aktuella sidan. Bakåt av [org.apache.sling.api.resource.ValueMap](https://helpx.adobe.com/experience-manager/6-5/sites/developing/using/reference-materials/javadoc/org/apache/sling/api/resource/ValueMap.html) |
+| `inheritedPageProperties` | Lista över ärvda sidegenskaper för den aktuella sidan. Bakåt av [org.apache.sling.api.resource.ValueMap](https://helpx.adobe.com/experience-manager/6-5/sites/developing/using/reference-materials/javadoc/org/apache/sling/api/resource/ValueMap.html) |
 
 ## Java-baserade objekt {#java-backed-objects}
 
@@ -58,7 +57,7 @@ De mest användbara variablerna i tabellen nedan är markerade med fet stil.
 
 ## JavaScript-baserade objekt {#javascript-backed-objects}
 
-Det går att backa HTML-logik med JavaScript. Rekommenderad eller rekommenderad metod är emellertid att använda [Sling Models.](https://sling.apache.org/documentation/bundles/models.html)
+Det går att backa HTML-logik med JavaScript. Rekommenderad eller rekommenderad metod är dock att använda [Sling Models.](https://sling.apache.org/documentation/bundles/models.html)
 
 <!-- 
 

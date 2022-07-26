@@ -1,17 +1,17 @@
 ---
 title: HTML-uttrycksspråk
-description: HTML-mallspråket använder ett uttrycksspråk för att komma åt de datastrukturer som innehåller de dynamiska elementen i HTML-utdata.
+description: Lär dig hur du använder HTML-uttrycksspråk i AEM. I mallspråket HTML används ett uttrycksspråk för att komma åt de datastrukturer som innehåller de dynamiska elementen i utdata från HTML.
 exl-id: 57e3961b-8c84-4d56-a049-597c7b277448
-source-git-commit: 89b9e89254f341e74f1a5a7b99735d2e69c8a91e
+source-git-commit: 7b53eff0652f650ffb8caae0e69aa349b5c548eb
 workflow-type: tm+mt
-source-wordcount: '1852'
+source-wordcount: '1860'
 ht-degree: 0%
 
 ---
 
 # HTML-uttrycksspråk {#htl-expression-language}
 
-HTML-mallspråket använder ett uttrycksspråk för att komma åt de datastrukturer som innehåller de dynamiska elementen i HTML-utdata. Uttrycken avgränsas med tecknen `${` och `}`. För att undvika felformaterad HTML kan uttryck bara användas i attributvärden, i elementinnehåll eller i kommentarer.
+I mallspråket HTML används ett uttrycksspråk för att komma åt de datastrukturer som innehåller de dynamiska elementen i utdata från HTML. Uttrycken avgränsas med tecken `${` och `}`. För att undvika felformaterade HTML kan uttryck bara användas i attributvärden, i elementinnehåll eller i kommentarer.
 
 ```xml
 <!-- ${component.path} -->
@@ -20,19 +20,19 @@ HTML-mallspråket använder ett uttrycksspråk för att komma åt de datastruktu
 </h1>
 ```
 
-Uttryck kan föregås av ett `\`-tecken, t.ex. `\${test}` kommer att återge `${test}`.
+Uttryck kan föregås av ett `\` tecken, till exempel `\${test}` återger `${test}`.
 
 >[!NOTE]
 >
->Om du vill testa exemplen på den här sidan kan du använda en körningsmiljö som heter [Read Eval Print Loop](https://github.com/Adobe-Marketing-Cloud/aem-sightly-repl).
+>För att testa exemplen på den här sidan finns en aktiv körningsmiljö som heter [Läs utvärderingsversion, utskriftslinga](https://github.com/Adobe-Marketing-Cloud/aem-sightly-repl) kan användas.
 
-Uttryckssyntaxen innehåller [variabler](#variables), [literaler](#literals), [operatorer](#operators) och [alternativ](#options):
+Uttryckssyntaxen innehåller [variabler](#variables), [litteraler](#literals), [operatorer](#operators) och [alternativ](#options):
 
 ## Variabler {#variables}
 
 Variabler är behållare som lagrar datavärden eller objekt. Variabelnamnen kallas identifierare.
 
-Utan att behöva ange något ger HTML åtkomst till alla objekt som var vanliga i JSP efter att ha inkluderat `global.jsp`. Sidan [Globala objekt](global-objects.md) innehåller en lista över alla objekt som HTL ger åtkomst till.
+Utan att behöva ange något ger HTML åtkomst till alla objekt som var vanliga i JSP efter att ha inkluderat `global.jsp`. The [Globala objekt](global-objects.md) sidan innehåller en lista över alla objekt som HTL ger åtkomst till.
 
 ### Egenskapsåtkomst {#property-access}
 
@@ -45,15 +45,15 @@ ${currentPage['title']} or ${currentPage["title"]}
 
 I de flesta fall bör den enklare punktnotationen vara att föredra, och hakparentesnotationen bör användas för att komma åt egenskaper som innehåller ogiltiga identifierartecken eller för att komma åt egenskaper dynamiskt. Följande två kapitel innehåller information om dessa två fall.
 
-De åtkomliga egenskaperna kan vara funktioner, men att skicka argument stöds inte, så bara funktioner som inte förväntar sig argument kan nås, som get-metoder. Detta är en önskad begränsning, som är avsedd att minska mängden logik som är inbäddad i uttryck. Vid behov kan [`data-sly-use`](block-statements.md#use)-satsen användas för att skicka parametrar till logiken.
+De åtkomliga egenskaperna kan vara funktioner, men att skicka argument stöds inte, så bara funktioner som inte förväntar sig argument kan nås, som get-metoder. Detta är en önskad begränsning, som är avsedd att minska mängden logik som är inbäddad i uttryck. Om det behövs kan du [`data-sly-use`](block-statements.md#use) -programsats kan användas för att skicka parametrar till logiken.
 
-I exemplet ovan visas också att Java-get-funktioner, som `getTitle()`, kan nås utan att föregå `get` och genom att gemena till tecknet som följer.
+I exemplet ovan visas också att Java-get-funktioner, som `getTitle()`, kan nås utan att föregås av `get`och genom att sänka skiftläget för tecknet som följer.
 
 ### Giltiga ID-tecken {#valid-identifier-characters}
 
-Variabelnamnen, som kallas identifierare, följer vissa regler. De måste börja med en bokstav (`A`-`Z` och `a`-`z`) eller ett understreck (`_`), och efterföljande tecken kan också vara siffror (`0`-`9`) eller kolon (`:`). Unicode-tecken som `å` och `ü` kan inte användas i identifierare.
+Variabelnamnen, som kallas identifierare, följer vissa regler. De måste börja med en bokstav (`A`-`Z` och `a`-`z`) eller ett understreck (`_`) och efterföljande tecken kan också vara siffror (`0`-`9`) eller kolon (`:`). Unicode-tecken som `å` och `ü` kan inte användas i identifierare.
 
-Eftersom kolonet (`:`) är vanligt i AEM egenskapsnamn, bör det understrykas att det är ett bra identifierartecken:
+Med tanke på kolon (`:`) är vanligt i AEM egenskapsnamn, det bör understrykas att det är bekvämt att använda ett giltigt identifierartecken:
 
 `${properties.jcr:title}`
 
@@ -79,7 +79,7 @@ En litteral är en notation som representerar ett fast värde.
 
 ### Boolesk {#boolean}
 
-Boolean representerar en logisk enhet och kan ha två värden: `true` och `false`.
+Boolean representerar en logisk enhet och kan ha två värden: `true`och `false`.
 
 `${true} ${false}`
 
@@ -109,7 +109,7 @@ Förutom vanliga tecken kan du använda följande specialtecken:
    Några användbara escape-sekvenser med unicode är:
 
    * `\u0022` for `"`
-   * `\u0027` for  `'`
+   * `\u0027` for `'`
 
 För tecken som inte listas ovan visas ett fel före ett omvänt snedstreck.
 
@@ -150,11 +150,11 @@ Arrayer är användbara för att ge en lista med värden från mallen.
 
 De här operatorerna används vanligtvis med booleska värden, men precis som i JavaScript returnerar de i själva verket värdet för en av de angivna operanderna, så när de används med icke-booleska värden kan de returnera ett icke-booleskt värde.
 
-Om ett värde kan konverteras till `true` kallas värdet sann. Om ett värde kan konverteras till `false` kallas värdet falskt. Värden som kan konverteras till `false` är odefinierade variabler, null-värden, talet noll och tomma strängar.
+Om ett värde kan konverteras till `true`är värdet sanningsenligt. Om ett värde kan konverteras till `false`är värdet så kallat falskt. Värden som kan konverteras till `false` är odefinierade variabler, null-värden, talet noll och tomma strängar.
 
 #### Logiskt NOT {#logical-not}
 
-`${!myVar}` returnerar  `false` om dess enda operand kan konverteras till  `true`, annars returneras  `true`.
+`${!myVar}` returnerar `false` om dess enda operand kan konverteras till `true`; annars returneras `true`.
 
 Det här kan till exempel användas för att invertera ett testvillkor, som att bara visa ett element om det inte finns några underordnade sidor:
 
@@ -164,7 +164,7 @@ Det här kan till exempel användas för att invertera ett testvillkor, som att 
 
 #### Logiskt OCH {#logical-and}
 
-`${varOne && varTwo}` returnerar  `varOne` om den är falsk, annars returneras  `varTwo`.
+`${varOne && varTwo}` returnerar `varOne` om det är falskt, annars returneras `varTwo`.
 
 Den här operatorn kan användas för att testa två villkor samtidigt, som att verifiera att det finns två egenskaper:
 
@@ -175,7 +175,7 @@ Den här operatorn kan användas för att testa två villkor samtidigt, som att 
 </div>
 ```
 
-Den logiska AND-operatorn kan också användas för att villkorligt visa HTML-attribut, eftersom HTML tar bort attribut med dynamiskt angivna värden som utvärderas till false, eller till en tom sträng. I exemplet nedan visas attributet `class` bara om `logic.showClass` är sann och om `logic.className` finns och inte är tomt:
+Den logiska AND-operatorn kan också användas för att villkorligt visa HTML-attribut, eftersom HTL tar bort attribut med dynamiskt angivna värden som utvärderas till false, eller till en tom sträng. Så i exemplet nedan är `class` attribut visas bara om `logic.showClass` är sann och om `logic.className` finns och är inte tom:
 
 ```xml
 <div class="${logic.showClass && logic.className}">...</div>
@@ -183,7 +183,7 @@ Den logiska AND-operatorn kan också användas för att villkorligt visa HTML-at
 
 #### Logiskt ELLER {#logical-or}
 
-`${varOne || varTwo}` returnerar  `varOne` om den är sann, annars returneras  `varTwo`.
+`${varOne || varTwo}` returnerar `varOne` om den är sann, annars returneras `varTwo`.
 
 Den här operatorn kan användas för att testa om ett av två villkor är uppfyllt, som att kontrollera om det finns minst en egenskap:
 
@@ -193,7 +193,7 @@ Den här operatorn kan användas för att testa om ett av två villkor är uppfy
 
 När den logiska OR-operatorn returnerar den första variabeln som är sann, kan den också användas för att tillhandahålla reservvärden.
 
-Den kan också användas för att villkorligt visa HTML-attribut eftersom HTML tar bort attribut med värden som anges av uttryck som utvärderas som false eller till en tom sträng. I exemplet nedan visas **`properties.jcr:`**-titeln om den finns och inte är tom, annars visas **`properties.jcr:description`** som  om den finns och inte är tom. Annars visas meddelandet&quot;ingen rubrik eller beskrivning har angetts&quot;:
+Den kan också användas för att villkorligt visa HTML-attribut eftersom HTML tar bort attribut med värden som anges av uttryck som utvärderas som false eller till en tom sträng. Så exemplet nedan visas **`properties.jcr:`** title if it exists and is not empty, else it back to displaying **`properties.jcr:description`** om den finns och inte är tom, annars visas meddelandet&quot;ingen rubrik eller beskrivning har angetts&quot;:
 
 ```xml
 <p>${properties.jcr:title || properties.jcr:description || "no title or description provided"}</p>
@@ -201,7 +201,7 @@ Den kan också användas för att villkorligt visa HTML-attribut eftersom HTML t
 
 ### Villkorlig (ternär) operator {#conditional-ternary-operator}
 
-`${varCondition ? varOne : varTwo}` returnerar  `varOne` om  `varCondition` är sann, annars returneras  `varTwo`.
+`${varCondition ? varOne : varTwo}` returnerar `varOne` if `varCondition` är sann, annars returneras `varTwo`.
 
 Den här operatorn kan vanligtvis användas för att definiera villkor i uttryck, som att visa ett annat meddelande baserat på sidans status:
 
@@ -226,19 +226,19 @@ Likhets- och olikhetsoperatorer stöder bara operander som är av identiska type
 * Booleaner är lika om båda är `true` eller båda är `false`.
 * Null- eller undefined-variabler är lika med sig själva och med varandra.
 
-`${varOne == varTwo}` returnerar  `true` om  `varOne` och  `varTwo` är lika.
+`${varOne == varTwo}` returnerar `true` if `varOne` och `varTwo` är lika.
 
-`${varOne != varTwo}` returnerar  `true` om  `varOne` och inte  `varTwo` är lika.
+`${varOne != varTwo}` returnerar `true` if `varOne` och `varTwo` är inte lika.
 
 Relationsoperatorer stöder bara operander som är tal. För alla andra typer visas ett fel.
 
-`${varOne > varTwo}` returnerar  `true` om  `varOne` är större än  `varTwo`.
+`${varOne > varTwo}` returnerar `true` if `varOne` är större än `varTwo`.
 
-`${varOne < varTwo}` returneras  `true` om  `varOne` är mindre än  `varTwo`.
+`${varOne < varTwo}` returnerar `true` if `varOne` är mindre än `varTwo`.
 
-`${varOne >= varTwo}` returnerar  `true` om  `varOne` är större eller lika med  `varTwo`.
+`${varOne >= varTwo}` returnerar `true` if `varOne` är större eller lika med `varTwo`.
 
-`${varOne <= varTwo}` returneras  `true` om  `varOne` är mindre eller lika med  `varTwo`.
+`${varOne <= varTwo}` returnerar `true` if `varOne` är mindre eller lika med `varTwo`.
 
 ### Gruppera parenteser {#grouping-parentheses}
 
@@ -279,7 +279,7 @@ ${@ optOne, optTwo=bar}
 
 ### Strängformatering {#string-formatting}
 
-Alternativ som ersätter de uppräknade platshållarna, {*n*}, med motsvarande variabel:
+Alternativ som ersätter de numrerade platshållarna, {*n*}, med motsvarande variabel:
 
 ```xml
 ${'Page {0} of {1}' @ format=[current, total]}
@@ -309,7 +309,7 @@ Lägger till HTML-tillägget och ett fragment (#value) till en bana.
 <a href="${item.path @ extension = 'html', fragment=item.name}">${item.name}</a>
 ```
 
-`@extension` fungerar i alla scenarier och kontrollerar om tillägget ska läggas till eller inte.
+The `@extension` fungerar i alla scenarier, kontrollera om tillägget ska läggas till eller inte.
 
 ```xml
 ${ link @ extension = 'html' }
@@ -332,11 +332,11 @@ I följande exempel visas att formatet anges först och sedan det värde som beh
 
 >[!NOTE]
 >
->Fullständig information om det format du kan använda finns i [HTL-specifikation](https://github.com/Adobe-Marketing-Cloud/htl-spec/blob/master/SPECIFICATION.md).
+>Fullständig information om det format du kan använda finns i [HTML-specifikation](https://github.com/Adobe-Marketing-Cloud/htl-spec/blob/master/SPECIFICATION.md).
 
 ### Internationalisering {#internationalization}
 
-Översätter strängen till språket i den aktuella *källan* (se nedan) med den aktuella [ordlistan](https://experienceleague.adobe.com/docs/experience-manager-65/developing/components/internationalization/i18n-translator.html). Om ingen översättning hittas används den ursprungliga strängen.
+Översätter strängen till det aktuella språket *källa* (se nedan), använda aktuell [ordlista](https://experienceleague.adobe.com/docs/experience-manager-65/developing/components/internationalization/i18n-translator.html). Om ingen översättning hittas används den ursprungliga strängen.
 
 ```xml
 ${'Page' @ i18n}
@@ -378,7 +378,7 @@ ${['one', 'two'] @ join='; '}
 
 ### Visningssammanhang {#display-context}
 
-Visningssammanhanget för ett HTML-uttryck refererar till dess plats i HTML-sidans struktur. Om uttrycket till exempel visas på plats som skulle skapa en textnod när den återgavs, sägs det vara i ett `text`-sammanhang. Om det hittas inom värdet för ett attribut sägs det vara i ett `attribute`-sammanhang och så vidare.
+Visningssammanhanget för ett HTML-uttryck refererar till dess plats i strukturen för HTML-sidan. Om uttrycket till exempel visas på plats som skulle ge en textnod när den återgavs, sägs det vara i en `text` kontext. Om det hittas inom värdet för ett attribut, sägs det vara i en `attribute` kontext och så vidare.
 
 Med undantag för skript- (JS) och stilkontexter (CSS) identifierar HTML automatiskt uttryckens kontext och undviker dem på rätt sätt för att förhindra XSS-säkerhetsproblem. För skript och CSS måste det önskade sammanhanget anges explicit. Dessutom kan sammanhangsbeteendet anges explicit i alla andra fall där du vill åsidosätta det automatiska beteendet.
 
@@ -394,7 +394,7 @@ HTML kommer att kringgå dessa olika typer i enlighet med säkerhetskraven i der
 <a href="${properties.link}" title="${properties.title}">${properties.text}</a>
 ```
 
-För att skapa en säker utdatamarkering (d.v.s. där själva uttrycket utvärderas till HTML) används kontexten `html`:
+Om du vill att koden ska skrivas ut på ett säkert sätt (d.v.s. där själva uttrycket utvärderas till HTML), `html` kontext används:
 
 ```xml
 <div>${properties.richText @ context='html'}</div>
@@ -422,9 +422,9 @@ Escaping- och XSS-skydd kan också stängas av:
 
 | Kontext | När ska användas | Vad det gör |
 |--- |--- |--- |
-| `text` | Standard för innehåll inuti element | Kodar alla HTML-specialtecken. |
-| `html` | För säker utskrift | Filtrerar HTML så att den uppfyller AntiSamy-policyreglerna och tar bort det som inte matchar reglerna. |
-| `attribute` | Standard för attributvärden | Kodar alla HTML-specialtecken. |
+| `text` | Standard för innehåll inuti element | Kodar alla specialtecken för HTML. |
+| `html` | För säker utskrift | Filtrerar HTML för att uppfylla antiSamypolicyreglerna och tar bort det som inte matchar reglerna. |
+| `attribute` | Standard för attributvärden | Kodar alla specialtecken för HTML. |
 | `uri` | Så här visar du länkar och sökvägar: Standard för href- och src-attributvärden | Validerar URI för att skriva som ett href- eller src-attributvärde. Inget returneras om valideringen misslyckas. |
 | `number` | Visa tal | Validerar URI för att innehålla ett heltal, returnerar noll om valideringen misslyckas. |
 | `attributeName` | Standard för attributnamn utan data när attributnamn anges | Validerar attributnamnet, returnerar ingenting om valideringen misslyckas. |
