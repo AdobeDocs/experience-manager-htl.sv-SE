@@ -1,20 +1,20 @@
 ---
 sub-product: Adobe Experience Manager HTL
 user-guide-title: Adobe Experience Manager HTL
-breadcrumb-title: HTML-guide
-user-guide-description: Använd HTML (HTML Template Language) för att skapa ett företagsbaserat webbramverk.
+breadcrumb-title: Användarhandbok om HTL
+user-guide-description: Använd HTL (HTML Template Language) för att skapa ett storföretagsbaserat webbramverk.
 feature-set: Experience Manager
 feature: Developer Tools
 role: Developer
 source-git-commit: f9b59d5fcc380413f2727b06f41ecacca6518227
 workflow-type: tm+mt
 source-wordcount: '46'
-ht-degree: 2%
+ht-degree: 52%
 
 ---
 
 
-# Hjälp om Adobe Experience Manager HTML {#content}
+# Adobe Experience Manager HTL Hjälp {#content}
 
 + [Översikt](overview.md)
 + [Komma igång med HTML](getting-started.md)
