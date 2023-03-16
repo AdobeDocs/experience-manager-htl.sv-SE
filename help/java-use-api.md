@@ -2,9 +2,9 @@
 title: HTL Java Use-API
 description: Med HTL Java Use-API:t kan en HTML-fil få åtkomst till hjälpmetoder i en anpassad Java-klass.
 exl-id: 9a9a2bf8-d178-4460-a3ec-cbefcfc09959
-source-git-commit: da2375a2390f0254dba9745d9f4970e88788e5d5
+source-git-commit: f295fe81062f87d4f3f46705fb1e3d706d2a9d49
 workflow-type: tm+mt
-source-wordcount: '1518'
+source-wordcount: '1510'
 ht-degree: 0%
 
 ---
@@ -310,7 +310,7 @@ I det här avsnittet introduceras ytterligare funktioner som går utöver det en
 
 ### Parametrar skickas {#passing-parameters}
 
-Parametrar kan skickas till en use-class vid initiering. Vi kan till exempel göra något så här:
+Parametrar kan skickas till en use-class vid initiering.
 
 Mer information finns i Sling [Dokumentation för HTL Scripting Engine.](https://sling.apache.org/documentation/bundles/scripting/scripting-htl.html#passing-parameters-to-java-use-objects)
 
