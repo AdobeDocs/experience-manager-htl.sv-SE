@@ -245,7 +245,7 @@ Dessutom gäller den typ av variabel som placerats i uttrycket:
 
 * **Antal:** Anger värdet som attributvärde.
 
-* **Boolesk:**
+* **Boolean:**
    * **true:** Visar attributet utan värde (som ett booleskt HTML-attribut)
    * **false:** Tar bort attributet helt och hållet.
 

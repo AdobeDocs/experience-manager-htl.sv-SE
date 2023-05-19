@@ -9,7 +9,7 @@ role: Developer
 source-git-commit: f9b59d5fcc380413f2727b06f41ecacca6518227
 workflow-type: tm+mt
 source-wordcount: '46'
-ht-degree: 52%
+ht-degree: 50%
 
 ---
 
