@@ -9,14 +9,14 @@ role: Developer
 source-git-commit: 88edbd2fd66de960460df5928a3b42846d32066b
 workflow-type: tm+mt
 source-wordcount: '46'
-ht-degree: 50%
+ht-degree: 39%
 
 ---
 
 
-# Adobe Experience Manager HTL Hjälp {#content}
+# Hjälp om Adobe Experience Manager HTML {#content}
 
-+ [Översikt](overview.md)
++ [Ökning](overview.md)
 + [Komma igång med HTML](getting-started.md)
 + [HTML-specifikationen](specification.md)
 + [Globala HTML-objekt](global-objects.md)

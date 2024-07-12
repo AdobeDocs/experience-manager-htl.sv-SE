@@ -4,7 +4,7 @@ description: Lär dig mer om uppräkningsbara objekt, Java-baserade objekt och J
 exl-id: ca590b92-f1b3-4e44-a04a-a2c10dff256f
 source-git-commit: 88edbd2fd66de960460df5928a3b42846d32066b
 workflow-type: tm+mt
-source-wordcount: '200'
+source-wordcount: '166'
 ht-degree: 1%
 
 ---
@@ -12,15 +12,15 @@ ht-degree: 1%
 
 # Globala HTML-objekt {#htl-global-objects}
 
-Utan att behöva ange något ger HTML tillgång till många objekt som är användbara för utvecklaren. De här objekten är utöver de objekt som kan introduceras via [Use-API.](java-use-api.md)
+Utan att behöva ange något ger HTML tillgång till många objekt som är användbara för utvecklaren. De här objekten är utöver alla objekt som kan introduceras via [Use-API:t.](java-use-api.md)
 
 >[!NOTE]
 >
->För utvecklare som är bekanta med JSP-utveckling i AEM ger HTL åtkomst till alla objekt som var vanliga i JSP efter att ha inkluderat `global.jsp`.
+>För utvecklare som är bekanta med JSP-utveckling i AEM, ger HTL åtkomst till alla objekt som var vanliga i JSP efter att `global.jsp` inkluderats.
 
 ## Antal objekt {#enumerable-objects}
 
-Dessa objekt ger smidig åtkomst till ofta använd information. Deras innehåll kan kommas åt med punktnotation, och de kan itereras igenom med `data-sly-list` eller `data-sly-repeat`.
+Dessa objekt ger smidig åtkomst till ofta använd information. Deras innehåll kan nås med punktnotation och kan itereras igenom med `data-sly-list` eller `data-sly-repeat`.
 
 | Variabelnamn | Beskrivning | Bakåt av |
 |--- |--- |--- |
@@ -62,4 +62,4 @@ Vart och ett av följande objekt backas upp av motsvarande Java-objekt.
 
 ## JavaScript-baserade objekt {#javascript-backed-objects}
 
-Det går att backa HTML-logik med JavaScript. Rekommenderad eller rekommenderad metod är dock att använda [Sling Models.](https://sling.apache.org/documentation/bundles/models.html)
+Det går att backa HTML-logiken med JavaScript. Den rekommenderade eller rekommenderade metoden är [Sling Models.](https://sling.apache.org/documentation/bundles/models.html)

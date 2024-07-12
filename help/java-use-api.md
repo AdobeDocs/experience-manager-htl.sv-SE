@@ -4,7 +4,7 @@ description: Med HTL Java Use-API:t kan en HTML-fil få åtkomst till hjälpmeto
 exl-id: 9a9a2bf8-d178-4460-a3ec-cbefcfc09959
 source-git-commit: 83f07cab5e2f4604701708f6a1a4bc19e3b54107
 workflow-type: tm+mt
-source-wordcount: '1505'
+source-wordcount: '1162'
 ht-degree: 0%
 
 ---
@@ -16,7 +16,7 @@ Med HTL Java Use-API:t kan en HTML-fil få åtkomst till hjälpmetoder i en anpa
 
 ## Användningsfall {#use-case}
 
-Använd-API:t för HTL Java möjliggör för en HTML-fil att komma åt hjälpmetoder i en anpassad Java-klass via `data-sly-use`. På så sätt kan all komplex affärslogik kapslas in i Java-koden, medan HTML-koden endast hanterar direkt markeringsproduktion.
+Använd-API:t för HTL Java gör att en HTML-fil kan komma åt hjälpmetoder i en anpassad Java-klass via `data-sly-use`. På så sätt kan all komplex affärslogik kapslas in i Java-koden, medan HTML-koden endast hanterar direkt markeringsproduktion.
 
 Ett Java Use-API-objekt kan vara en enkel POJO som initieras av en viss implementering via POJO:s standardkonstruktor.
 
@@ -31,7 +31,7 @@ Use-API-POJO:erna kan också visa en offentlig metod, som kallas init, med följ
     public void init(javax.script.Bindings bindings);
 ```
 
-The `bindings` kartan kan innehålla objekt som ger kontext till det HTML-skript som körs för tillfället och som Use-API-objektet kan använda för sin bearbetning.
+Mappningen `bindings` kan innehålla objekt som ger kontext till det HTML-skript som körs för tillfället och som Use-API-objektet kan använda för bearbetningen.
 
 ## Ett exempel {#a-simple-example}
 
@@ -39,9 +39,9 @@ I det här exemplet visas användningen av Use-API.
 
 >[!NOTE]
 >
->Det här exemplet är förenklat för att visa hur det används. I en produktionsmiljö bör du använda [Sling-modeller.](https://sling.apache.org/documentation/bundles/models.html)
+>Det här exemplet är förenklat för att visa hur det används. I en produktionsmiljö bör du använda [segmenteringsmodeller.](https://sling.apache.org/documentation/bundles/models.html)
 
-Vi börjar med en HTML-komponent, som kallas `info`, som inte har någon use-klass. Den består av en enda fil, `/apps/my-example/components/info.html`
+Vi börjar med en HTML-komponent, som kallas `info`, som inte har någon use-class. Den består av en enda fil, `/apps/my-example/components/info.html`
 
 ```xml
 <div>
@@ -50,7 +50,7 @@ Vi börjar med en HTML-komponent, som kallas `info`, som inte har någon use-kla
 </div>
 ```
 
-Vi lägger även till innehåll för den här komponenten som ska återges på `/content/my-example/`:
+Vi lägger också till en del innehåll för den här komponenten som ska återges på `/content/my-example/`:
 
 ```xml
 {
@@ -71,13 +71,13 @@ När det här innehållet öppnas körs HTML-filen. I HTML-koden använder vi ko
 
 ### Lägga till en användningsklass {#adding-a-use-class}
 
-The `info` som den ser ut behöver ingen use-klass för att utföra sin enkla funktion. Det finns fall där du behöver göra saker som inte kan göras i HTML och där du behöver en användningsklass. Tänk på följande:
+Komponenten `info` som den ser ut behöver ingen use-klass för att utföra sin enkla funktion. Det finns fall där du behöver göra saker som inte kan göras i HTML och där du behöver en användningsklass. Tänk på följande:
 
 >[!NOTE]
 >
 >En use-klass ska bara användas när något inte kan göras i enbart HTML.
 
-Anta till exempel att du vill ha `info` -komponenten som ska visas `title` och `description` resursens egenskaper, dock med gemener. Eftersom HTML inte har någon metod för att sänka rabattsträngar behöver du en use-class. Vi kan göra detta genom att lägga till en Java-klass och ändra `/apps/my-example/component/info/info.html` enligt följande:
+Anta till exempel att du vill att komponenten `info` ska visa egenskaperna `title` och `description` för resursen, men alla med gemener. Eftersom HTML inte har någon metod för att sänka rabattsträngar behöver du en use-class. Vi kan göra detta genom att lägga till en Java-användarklass och ändra `/apps/my-example/component/info/info.html` enligt följande:
 
 ```xml
 <div data-sly-use.info="Info">
@@ -113,7 +113,7 @@ public class Info extends WCMUsePojo {
 }
 ```
 
-Se [Javadocs for `com.adobe.cq.sightly.WCMUsePojo`](https://developer.adobe.com/experience-manager/reference-materials/6-5/javadoc/com/adobe/cq/sightly/WCMUsePojo.html) för mer information.
+Mer information finns i [Javadocs för `com.adobe.cq.sightly.WCMUsePojo`](https://developer.adobe.com/experience-manager/reference-materials/6-5/javadoc/com/adobe/cq/sightly/WCMUsePojo.html).
 
 Nu går vi igenom de olika delarna av koden.
 
@@ -122,12 +122,12 @@ Nu går vi igenom de olika delarna av koden.
 Java-klassen kan installeras på två sätt:
 
 * **Lokal** - I en lokal installation placeras Java-källfilen bredvid HTML-filen i samma databasmapp. Källan kompileras automatiskt vid behov. Inget separat kompilerings- eller paketeringssteg krävs.
-* **Paket** - I en paketinstallation måste Java-klassen kompileras och distribueras i ett OSGi-paket med hjälp av AEM standardmetod (se avsnittet [Paketerad Java-klass](#bundled-java-class)).
+* **Paket** - I en paketinstallation måste Java-klassen kompileras och distribueras i ett OSGi-paket med hjälp av AEM standarddistributionsmekanism (se avsnittet [Paketerad Java-klass](#bundled-java-class)).
 
 Om du vill veta vilken metod du ska använda när bör du tänka på följande två saker:
 
-* A **lokal Java use-class** rekommenderas när use-klassen är specifik för komponenten i fråga.
-* A **bundle Java use-class** rekommenderas när Java-koden implementerar en tjänst som är tillgänglig från flera HTML-komponenter.
+* En **lokal Java use-class** rekommenderas när use-klassen är specifik för den aktuella komponenten.
+* En **Java-användarklass** som ingår i paketet rekommenderas när Java-koden implementerar en tjänst som är tillgänglig från flera HTML-komponenter.
 
 I det här exemplet används en lokal installation.
 
@@ -135,7 +135,7 @@ I det här exemplet används en lokal installation.
 
 När en lokal installation används måste paketnamnet för use-klassen matcha databasmappens namn, där eventuella bindestreck i sökvägen ersätts med understreck i paketnamnet.
 
-I detta fall `Info.java` finns på `/apps/my-example/components/info` så paketet är `apps.my_example.components.info`:
+I det här fallet finns `Info.java` på `/apps/my-example/components/info` så paketet är `apps.my_example.components.info`:
 
 ```java
 package apps.my_example.components.info;
@@ -151,11 +151,11 @@ public class Info extends WCMUsePojo {
 
 >[!NOTE]
 >
->Du bör använda bindestreck i namn på databasobjekt när du AEM. Däremot är bindestreck ogiltiga i Java-paketnamn. Av denna anledning **alla bindestreck i databassökvägen måste konverteras till understreck i paketnamnet**.
+>Du bör använda bindestreck i namn på databasobjekt när du AEM. Däremot är bindestreck ogiltiga i Java-paketnamn. Därför måste **alla bindestreck i databassökvägen konverteras till understreck i paketnamnet**.
 
-### Utöka `WCMUsePojo` {#extending-wcmusepojo}
+### Utökar `WCMUsePojo` {#extending-wcmusepojo}
 
-Det finns många sätt att införliva en Java-klass med HTML, men det enklaste är att utöka `WCMUsePojo` klassen. Till exempel `/apps/my-example/component/info/Info.java`:
+Det finns flera sätt att införliva en Java-klass med HTML, men det enklaste är att utöka klassen `WCMUsePojo`. Till exempel `/apps/my-example/component/info/Info.java`:
 
 ```java
 package apps.my_example.components.info;
@@ -170,7 +170,7 @@ public class Info extends WCMUsePojo
 
 ### Initierar klassen {#initializing-the-class}
 
-När klassen use utökas från `WCMUsePojo`, initieringen utförs genom att åsidosätta `activate` i det här fallet `/apps/my-example/component/info/Info.java`
+När use-klassen utökas från `WCMUsePojo` utförs initieringen genom att metoden `activate` åsidosätts, i det här fallet i `/apps/my-example/component/info/Info.java`
 
 ```java
 ...
@@ -192,11 +192,11 @@ public class Info extends WCMUsePojo {
 
 ### Kontext {#context}
 
-Vanligtvis är [activate](https://developer.adobe.com/experience-manager/reference-materials/6-5/javadoc/com/adobe/cq/sightly/WCMUsePojo.html) -metoden används för att beräkna och lagra (i medlemsvariabler) de värden som behövs i din HTML-kod baserat på den aktuella kontexten (till exempel aktuell begäran och resurs).
+Metoden [activate](https://developer.adobe.com/experience-manager/reference-materials/6-5/javadoc/com/adobe/cq/sightly/WCMUsePojo.html) används vanligtvis för att beräkna och lagra (i medlemsvariabler) de värden som behövs i din HTML-kod utifrån det aktuella sammanhanget (till exempel aktuell begäran och resurs).
 
-The `WCMUsePojo` -klassen ger åtkomst till samma uppsättning kontextobjekt som finns i en HTML-fil (se dokumentet [Globala objekt.](global-objects.md))
+Klassen `WCMUsePojo` ger åtkomst till samma uppsättning kontextobjekt som finns i en HTML-fil (se dokumentet [Globala objekt.](global-objects.md))
 
-I en klass som utökas `WCMUsePojo`, kan kontextobjekt kommas åt med hjälp av namn
+I en klass som utökar `WCMUsePojo` kan kontextobjekt nås via namn med
 
 [`<T> T get(String name, Class<T> type)`](https://developer.adobe.com/experience-manager/reference-materials/6-5/javadoc/com/adobe/cq/sightly/WCMUsePojo.html)
 
@@ -226,9 +226,9 @@ När use-class har initierats körs HTML-filen. Under den här scenen kommer HTM
 
 Om du vill ge åtkomst till dessa värden inifrån HTML-filen måste du definiera egna get-metoder i use-klassen enligt följande namnkonvention:
 
-* En metod i formuläret `getXyz` visar en objektegenskap med namnet `xyz`.
+* En metod i formatet `getXyz` visar en objektegenskap med namnet `xyz` i HTML-filen.
 
-I följande exempelfil `/apps/my-example/component/info/Info.java`, metoderna `getTitle` och `getDescription` resultatet i objektegenskaperna `title` och `description` som är tillgängliga i HTML-filens sammanhang.
+I följande exempelfil `/apps/my-example/component/info/Info.java` resulterar metoderna `getTitle` och `getDescription` i att objektegenskaperna `title` och `description` blir tillgängliga i HTML-filens kontext.
 
 ```java
 ...
@@ -249,9 +249,9 @@ public class Info extends WCMUsePojo {
 
 ### dataanvändarvänligt attribut {#data-sly-use-attribute}
 
-The `data-sly-use` -attributet används för att initiera use-klassen i din HTML-kod. I vårt exempel `data-sly-use` -attributet deklarerar att vi vill använda klassen `Info`. Vi kan bara använda det lokala namnet på klassen eftersom vi använder en lokal installation (när Java-källfilen har placerats i samma mapp som HTML-filen). Om vi använde en paketinstallation måste vi ange det fullständiga klassnamnet.
+Attributet `data-sly-use` används för att initiera use-klassen i din HTML-kod. I vårt exempel deklarerar attributet `data-sly-use` att vi vill använda klassen `Info`. Vi kan bara använda det lokala namnet på klassen eftersom vi använder en lokal installation (när Java-källfilen har placerats i samma mapp som HTML-filen). Om vi använde en paketinstallation måste vi ange det fullständiga klassnamnet.
 
-Observera hur detta används `/apps/my-example/component/info/info.html` exempel.
+Observera användningen i det här `/apps/my-example/component/info/info.html`-exemplet.
 
 ```xml
 <div data-sly-use.info="Info">
@@ -262,9 +262,9 @@ Observera hur detta används `/apps/my-example/component/info/info.html` exempel
 
 ### Lokal identifierare {#local-identifier}
 
-Identifierare `info` (efter punkt in `data-sly-use.info`) används i HTML-filen för att identifiera klassen. Identifierarens omfång är globalt i filen, efter att den har deklarerats. Den är inte begränsad till elementet som innehåller `data-sly-use` -programsats.
+Identifieraren `info` (efter punkten i `data-sly-use.info`) används i HTML-filen för att identifiera klassen. Identifierarens omfång är globalt i filen, efter att den har deklarerats. Den är inte begränsad till elementet som innehåller programsatsen `data-sly-use`.
 
-Observera hur detta används `/apps/my-example/component/info/info.html` exempel.
+Observera användningen i det här `/apps/my-example/component/info/info.html`-exemplet.
 
 ```xml
 <div data-sly-use.info="Info">
@@ -275,9 +275,9 @@ Observera hur detta används `/apps/my-example/component/info/info.html` exempel
 
 ### Hämtar egenskaper {#getting-properties}
 
-Identifierare `info` används sedan för att komma åt objektegenskaperna `title` och `description` som exponerades via get-metoder `Info.getTitle` och `Info.getDescription`.
+Identifieraren `info` används sedan för att komma åt objektegenskaperna `title` och `description` som exponerades via get-metoderna `Info.getTitle` och `Info.getDescription`.
 
-Observera hur detta används `/apps/my-example/component/info/info.html` exempel.
+Observera användningen i det här `/apps/my-example/component/info/info.html`-exemplet.
 
 ```xml
 <div data-sly-use.info="Info">
@@ -288,7 +288,7 @@ Observera hur detta används `/apps/my-example/component/info/info.html` exempel
 
 ### Utdata {#output}
 
-Nu när vi öppnar `/content/my-example.html` returnerar följande `/content/my-example.html` -fil.
+När vi öppnar `/content/my-example.html` returneras följande `/content/my-example.html`-fil.
 
 ```xml
 <div>
@@ -299,7 +299,7 @@ Nu när vi öppnar `/content/my-example.html` returnerar följande `/content/my-
 
 >[!NOTE]
 >
->Det här exemplet förenklades för att visa hur det används. I en produktionsmiljö bör du använda [Sling-modeller.](https://sling.apache.org/documentation/bundles/models.html)
+>Det här exemplet förenklades för att visa hur det används. I en produktionsmiljö bör du använda [segmenteringsmodeller.](https://sling.apache.org/documentation/bundles/models.html)
 
 ## Förutom grunderna {#beyond-the-basics}
 
@@ -312,11 +312,11 @@ I det här avsnittet introduceras ytterligare funktioner som går utöver det en
 
 Parametrar kan skickas till en use-class vid initiering.
 
-Mer information finns i Sling [Dokumentation för HTL Scripting Engine.](https://sling.apache.org/documentation/bundles/scripting/scripting-htl.html#passing-parameters-to-java-use-objects)
+Mer information finns i dokumentationen för Sling [HTL Scripting Engine.](https://sling.apache.org/documentation/bundles/scripting/scripting-htl.html#passing-parameters-to-java-use-objects)
 
 ### Paketerad Java-klass {#bundled-java-class}
 
-Med en paketerad användningsklass måste klassen kompileras, paketeras och distribueras i AEM med den vanliga OSGi-paketdistributionsmekanismen. I motsats till en lokal installation bör paketdeklarationen för use-klass namnges normalt på samma sätt som i detta `/apps/my-example/component/info/Info.java` exempel.
+Med en paketerad användningsklass måste klassen kompileras, paketeras och distribueras i AEM med den vanliga OSGi-paketdistributionsmekanismen. Till skillnad från en lokal installation bör paketdeklarationen för use-klass namnges normalt på samma sätt som i det här `/apps/my-example/component/info/Info.java`-exemplet.
 
 ```java
 package org.example.app.components;
@@ -328,7 +328,7 @@ public class Info extends WCMUsePojo {
 }
 ```
 
-Och `data-sly-use` -programsatsen måste referera till det fullständiga klassnamnet, i motsats till bara det lokala klassnamnet som i det här `/apps/my-example/component/info/info.html` exempel.
+Programsatsen `data-sly-use` måste referera till det fullständiga klassnamnet, i motsats till bara det lokala klassnamnet som i det här `/apps/my-example/component/info/info.html`-exemplet.
 
 ```xml
 <div data-sly-use.info="org.example.app.components.info.Info">
