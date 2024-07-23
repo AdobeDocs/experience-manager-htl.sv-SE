@@ -1,7 +1,7 @@
 ---
-source-git-commit: 4940cb427833f3c0c72bccc6b1cd1737805be86f
+source-git-commit: 22f62868df0fcfc558e5d62434dde843a9f3ca83
 workflow-type: tm+mt
-source-wordcount: '0'
+source-wordcount: '177'
 ht-degree: 0%
 
 ---
@@ -9,8 +9,9 @@ ht-degree: 0%
 
 © Copyright 2021 Adobe. all rights reserved.
 
-Härmed beviljas alla som erhåller en kopia av denna programvara och tillhörande dokumentationsfiler (&quot;Programvaran&quot;) rätt att handla i Programvaran utan begränsning, inklusive utan begränsning rätten att använda, kopiera, modifiera, slå samman, publicera, distribuera, underlicensiera och/eller sälja kopior av Programvaran, samt att ge personer som Programvaran tillhandahålls rätt att göra detta, på följande villkor:
+Denna licens ger kostnadsfritt tillstånd till alla som får en kopia av programvaran och tillhörande dokumentationsfiler (&quot;Programvaran&quot;) att handla i Programvaran utan begränsningar. Denna licens innefattar utan begränsning rätten att använda, kopiera, redigera, slå samman, publicera, distribuera, underlicensiera och/eller sälja kopior av Programvaran. För att de personer till vilka Programvaran tillhandahålls ska kunna göra detta, på följande villkor:
 
 Ovannämnda meddelande om upphovsrätt och detta tillståndsmeddelande ska finnas med i alla exemplar eller väsentliga delar av Programvaran.
 
-PROGRAMVARAN TILLHANDAHÅLLS &quot;I BEFINTLIGT SKICK&quot; UTAN GARANTI AV NÅGON TYP, UTTRYCKLIG ELLER UNDERFÖRSTÅDD, INKLUSIVE MEN INTE BEGRÄNSAD TILL GARANTIER FÖR SÄLJBARHET, LÄMPLIGHET FÖR ETT VISST ÄNDAMÅL OCH ICKE-ÖVERTRÄDELSE. FÖRFATTARNA ELLER UPPHOVSRÄTTSINNEHAVARNA FÅR INTE I NÅGOT FALL ANSVARA FÖR ANSPRÅK, SKADOR ELLER ANDRA ANSVAR, OAVSETT OM DET ÄR EN AVTALSAVTAL, TORTERING ELLER ANNAT, SOM UPPSTÅR FRÅN, UTANFÖR ELLER I SAMBAND MED PROGRAMVARAN ELLER ANVÄNDNINGEN ELLER ANDRA I PROGRAMVARAN.
+PROGRAMVARAN TILLHANDAHÅLLS &quot;I BEFINTLIGT SKICK&quot; UTAN GARANTI AV NÅGON TYP, UTTRYCKLIG ELLER UNDERFÖRSTÅDD. DEN OMFATTAR, MEN ÄR INTE BEGRÄNSAD TILL, GARANTIER FÖR SÄLJBARHET, LÄMPLIGHET FÖR ETT VISST ÄNDAMÅL OCH ICKE-ÖVERTRÄDELSE. UPPHOVSRÄTTSINNEHAVARE FÅR INTE I NÅGOT FALL ANSVARA FÖR ANSPRÅK, SKADOR ELLER ANDRA ANSVAR. OAVSETT OM DET ÄR EN AVTAL, SORTERA ELLER PÅ ANNAT SÄTT SOM UPPSTÅR FRÅN, UT FRÅN ELLER I SAMBAND MED PROGRAMMET. ELLER ANVÄNDNINGEN ELLER ANDRA ERBJUDANDEN I PROGRAMVARAN.
+

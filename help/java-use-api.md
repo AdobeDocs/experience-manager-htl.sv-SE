@@ -2,9 +2,9 @@
 title: HTL Java Use-API
 description: Med HTL Java Use-API:t kan en HTML-fil få åtkomst till hjälpmetoder i en anpassad Java-klass.
 exl-id: 9a9a2bf8-d178-4460-a3ec-cbefcfc09959
-source-git-commit: 83f07cab5e2f4604701708f6a1a4bc19e3b54107
+source-git-commit: ebeac25c38b81c92011c163c7860688f43547a7d
 workflow-type: tm+mt
-source-wordcount: '1162'
+source-wordcount: '1137'
 ht-degree: 0%
 
 ---
@@ -16,7 +16,7 @@ Med HTL Java Use-API:t kan en HTML-fil få åtkomst till hjälpmetoder i en anpa
 
 ## Användningsfall {#use-case}
 
-Använd-API:t för HTL Java gör att en HTML-fil kan komma åt hjälpmetoder i en anpassad Java-klass via `data-sly-use`. På så sätt kan all komplex affärslogik kapslas in i Java-koden, medan HTML-koden endast hanterar direkt markeringsproduktion.
+Använd-API:t för HTL Java gör att en HTML-fil kan komma åt hjälpmetoder i en anpassad Java-klass via `data-sly-use`. Med den här funktionen kan all komplex affärslogik kapslas in i Java-koden, medan HTML-koden endast hanterar direkt markeringsproduktion.
 
 Ett Java Use-API-objekt kan vara en enkel POJO som initieras av en viss implementering via POJO:s standardkonstruktor.
 
@@ -39,9 +39,9 @@ I det här exemplet visas användningen av Use-API.
 
 >[!NOTE]
 >
->Det här exemplet är förenklat för att visa hur det används. I en produktionsmiljö bör du använda [segmenteringsmodeller.](https://sling.apache.org/documentation/bundles/models.html)
+>Det här exemplet är förenklat bara för att illustrera hur det används. I en produktionsmiljö rekommenderar Adobe att du använder [segmenteringsmodeller](https://sling.apache.org/documentation/bundles/models.html).
 
-Vi börjar med en HTML-komponent, som kallas `info`, som inte har någon use-class. Den består av en enda fil, `/apps/my-example/components/info.html`
+Börja med en HTL-komponent, som kallas `info` och som inte har någon use-klass. Den består av en enda fil, `/apps/my-example/components/info.html`
 
 ```xml
 <div>
@@ -50,7 +50,7 @@ Vi börjar med en HTML-komponent, som kallas `info`, som inte har någon use-cla
 </div>
 ```
 
-Vi lägger också till en del innehåll för den här komponenten som ska återges på `/content/my-example/`:
+Lägg nu till innehåll för den här komponenten som ska återges på `/content/my-example/`:
 
 ```xml
 {
@@ -60,7 +60,7 @@ Vi lägger också till en del innehåll för den här komponenten som ska återg
 }
 ```
 
-När det här innehållet öppnas körs HTML-filen. I HTML-koden använder vi kontextobjektet `properties` för att komma åt den aktuella resursens `title` och `description` och visa dem. Utdatafilen `/content/my-example.html` blir:
+När det här innehållet öppnas körs HTML-filen. I HTML-koden används kontextobjektet `properties` för att komma åt den aktuella resursens `title` och `description` och visa dem. Utdatafilen `/content/my-example.html` är:
 
 ```html
 <div>
@@ -77,7 +77,7 @@ Komponenten `info` som den ser ut behöver ingen use-klass för att utföra sin 
 >
 >En use-klass ska bara användas när något inte kan göras i enbart HTML.
 
-Anta till exempel att du vill att komponenten `info` ska visa egenskaperna `title` och `description` för resursen, men alla med gemener. Eftersom HTML inte har någon metod för att sänka rabattsträngar behöver du en use-class. Vi kan göra detta genom att lägga till en Java-användarklass och ändra `/apps/my-example/component/info/info.html` enligt följande:
+Anta till exempel att du vill att komponenten `info` ska visa egenskaperna `title` och `description` för resursen, men alla med gemener. Eftersom HTML inte har någon metod för att sänka radering av strängar, behöver du en use-klass genom att lägga till en Java use-class och ändra `/apps/my-example/component/info/info.html` enligt följande:
 
 ```xml
 <div data-sly-use.info="Info">
@@ -86,7 +86,7 @@ Anta till exempel att du vill att komponenten `info` ska visa egenskaperna `titl
 </div>
 ```
 
-Dessutom skapar vi `/apps/my-example/component/info/Info.java`.
+Dessutom skapas `/apps/my-example/component/info/Info.java`.
 
 ```java
 package apps.my_example.components.info;
@@ -113,7 +113,7 @@ public class Info extends WCMUsePojo {
 }
 ```
 
-Mer information finns i [Javadocs för `com.adobe.cq.sightly.WCMUsePojo`](https://developer.adobe.com/experience-manager/reference-materials/6-5/javadoc/com/adobe/cq/sightly/WCMUsePojo.html).
+Mer information finns i [Java-dokumenten för `com.adobe.cq.sightly.WCMUsePojo`](https://developer.adobe.com/experience-manager/reference-materials/6-5/javadoc/com/adobe/cq/sightly/WCMUsePojo.html).
 
 Nu går vi igenom de olika delarna av koden.
 
@@ -133,7 +133,7 @@ I det här exemplet används en lokal installation.
 
 ### Java-paketet är en databassökväg {#java-package-is-repository-path}
 
-När en lokal installation används måste paketnamnet för use-klassen matcha databasmappens namn, där eventuella bindestreck i sökvägen ersätts med understreck i paketnamnet.
+När du använder en lokal installation måste paketnamnet för use-klassen matcha databasmappens plats. Ersätt eventuella bindestreck i sökvägen med understreck i paketnamnet.
 
 I det här fallet finns `Info.java` på `/apps/my-example/components/info` så paketet är `apps.my_example.components.info`:
 
@@ -155,7 +155,7 @@ public class Info extends WCMUsePojo {
 
 ### Utökar `WCMUsePojo` {#extending-wcmusepojo}
 
-Det finns flera sätt att införliva en Java-klass med HTML, men det enklaste är att utöka klassen `WCMUsePojo`. Till exempel `/apps/my-example/component/info/Info.java`:
+Det finns flera sätt att införliva en Java-klass med HTML, men det enklaste är att utöka klassen `WCMUsePojo`. I det här exemplet `/apps/my-example/component/info/Info.java`:
 
 ```java
 package apps.my_example.components.info;
@@ -196,11 +196,11 @@ Metoden [activate](https://developer.adobe.com/experience-manager/reference-mate
 
 Klassen `WCMUsePojo` ger åtkomst till samma uppsättning kontextobjekt som finns i en HTML-fil (se dokumentet [Globala objekt.](global-objects.md))
 
-I en klass som utökar `WCMUsePojo` kan kontextobjekt nås via namn med
+I en klass som utökar `WCMUsePojo` kan du komma åt kontextobjekt med hjälp av deras namn:
 
 [`<T> T get(String name, Class<T> type)`](https://developer.adobe.com/experience-manager/reference-materials/6-5/javadoc/com/adobe/cq/sightly/WCMUsePojo.html)
 
-Du kan också komma åt ofta använda kontextobjekt direkt med den bekvämlighetsmetod som anges i den här tabellen.
+Du kan också komma åt vanliga sammanhangsobjekt direkt med den bekvämlighetsmetod som anges i den här tabellen.
 
 | Objekt | Praktisk metod |
 |---|---|
@@ -222,11 +222,11 @@ Du kan också komma åt ofta använda kontextobjekt direkt med den bekvämlighet
 
 ### Getter-metoder {#getter-methods}
 
-När use-class har initierats körs HTML-filen. Under den här scenen kommer HTML vanligtvis att dra in status för olika medlemsvariabler i use-klassen och återge dem för presentation.
+När klassen use har initierats körs HTML-filen. Under den här fasen hämtar HTML vanligtvis statusen för olika medlemsvariabler i use-klassen och återger dem för presentation.
 
 Om du vill ge åtkomst till dessa värden inifrån HTML-filen måste du definiera egna get-metoder i use-klassen enligt följande namnkonvention:
 
-* En metod i formatet `getXyz` visar en objektegenskap med namnet `xyz` i HTML-filen.
+* En metod i formatet `getXyz` visar i HTML-filen att en objektegenskap med namnet `xyz` finns.
 
 I följande exempelfil `/apps/my-example/component/info/Info.java` resulterar metoderna `getTitle` och `getDescription` i att objektegenskaperna `title` och `description` blir tillgängliga i HTML-filens kontext.
 
@@ -247,9 +247,9 @@ public class Info extends WCMUsePojo {
 }
 ```
 
-### dataanvändarvänligt attribut {#data-sly-use-attribute}
+### `data-sly-use`-attribut {#data-sly-use-attribute}
 
-Attributet `data-sly-use` används för att initiera use-klassen i din HTML-kod. I vårt exempel deklarerar attributet `data-sly-use` att vi vill använda klassen `Info`. Vi kan bara använda det lokala namnet på klassen eftersom vi använder en lokal installation (när Java-källfilen har placerats i samma mapp som HTML-filen). Om vi använde en paketinstallation måste vi ange det fullständiga klassnamnet.
+Attributet `data-sly-use` används för att initiera use-klassen i din HTML-kod. I det här exemplet deklarerar attributet `data-sly-use` att klassen `Info` används. I det här fallet kan du bara använda det lokala namnet på klassen eftersom du använder en lokal installation (när du har placerat Java-källfilen i samma mapp som HTML-filen). Om du använde en paketinstallation måste du ange det fullständiga, kvalificerade klassnamnet.
 
 Observera användningen i det här `/apps/my-example/component/info/info.html`-exemplet.
 
@@ -288,7 +288,7 @@ Observera användningen i det här `/apps/my-example/component/info/info.html`-e
 
 ### Utdata {#output}
 
-När vi öppnar `/content/my-example.html` returneras följande `/content/my-example.html`-fil.
+När `/content/my-example.html` används returneras nu följande `/content/my-example.html`-fil.
 
 ```xml
 <div>
@@ -299,7 +299,7 @@ När vi öppnar `/content/my-example.html` returneras följande `/content/my-exa
 
 >[!NOTE]
 >
->Det här exemplet förenklades för att visa hur det används. I en produktionsmiljö bör du använda [segmenteringsmodeller.](https://sling.apache.org/documentation/bundles/models.html)
+>Det här exemplet förenklades för att illustrera hur det används. I en produktionsmiljö rekommenderar Adobe att du använder [segmenteringsmodeller](https://sling.apache.org/documentation/bundles/models.html).
 
 ## Förutom grunderna {#beyond-the-basics}
 

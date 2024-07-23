@@ -2,9 +2,9 @@
 title: Komma igång med HTML
 description: Lär dig mer om HTML, det rekommenderade och rekommenderade serverbaserade mallsystemet för HTML i AEM, och förstå de viktigaste begreppen för språket och dess grundläggande konstruktion.
 exl-id: c95eb1b3-3b96-4727-8f4f-d54e7136a8f9
-source-git-commit: 88edbd2fd66de960460df5928a3b42846d32066b
+source-git-commit: ebeac25c38b81c92011c163c7860688f43547a7d
 workflow-type: tm+mt
-source-wordcount: '2147'
+source-wordcount: '2050'
 ht-degree: 0%
 
 ---
@@ -22,11 +22,11 @@ Det här dokumentet ger en översikt över syftet med HTML samt en introduktion 
 
 ## HTML-lager {#layers}
 
-HTML som används i AEM kan definieras av ett antal lager.
+I AEM definierar ett antal lager HTML.
 
 1. **[HTL-specifikation](specification.md)** - HTML är en öppen källkodsbaserad, plattformsoberoende specifikation som alla kan implementera.
 1. **[Sling HTL Scripting Engine](specification.md)** - Sling-projektet har skapat referensimplementeringen av HTML, som används av AEM.
-1. **[AEM tillägg](specification.md)** - AEM bygger ovanpå HTML-skriptmotorn Sling för att kunna erbjuda utvecklare praktiska AEM-funktioner.
+1. **[AEM tillägg](specification.md)** - AEM bygger ovanpå Sling HTML-skriptmotorn och ger utvecklare praktiska funktioner som är specifika för AEM.
 
 Denna HTML-dokumentation fokuserar på att använda HTML för att utveckla AEM lösningar. Det berör alla tre lager och kopplar externa resurser efter behov.
 
@@ -50,18 +50,18 @@ Här är ett första exempel som kan finnas som i en `template.html`-fil:
 
 Två olika typer av syntaxer kan särskiljas:
 
-* **Blockprogramsatser** - Om du vill visa elementet `<h1>` villkorligt används ett `data-sly-test` HTML5-dataattribut. HTL innehåller flera sådana attribut, som tillåter att beteenden kopplas till valfritt HTML-element, och alla har prefixet `data-sly`.
-* **Uttrycksspråk** - HTML-uttryck avgränsas av tecknen `${` och `}`. Vid körning utvärderas dessa uttryck och deras värde injiceras i den utgående HTML-strömmen.
+* **Blockprogramsatser** - Om du vill visa elementet `<h1>` villkorligt använder du ett `data-sly-test` HTML5-dataattribut. HTL innehåller flera sådana attribut, som tillåter att beteenden kopplas till valfritt HTML-element, och alla har prefixet `data-sly`.
+* **Uttrycksspråk** - Tecknen `${` och `}` avgränsar HTML-uttryck. Vid körning utvärderas dessa uttryck och deras värde injiceras i den utgående HTML-strömmen.
 
 Mer information om båda syntaxerna finns i [HTML-specifikationen](specification.md).
 
 ### Elementet SLY {#the-sly-element}
 
-Ett centralt koncept för HTML är att erbjuda möjligheten att återanvända befintliga HTML-element för att definiera blockprogramsatser, vilket gör att man slipper infoga ytterligare avgränsare för att definiera var programsatsen börjar och slutar. Den här diskreta kommenteringen av markeringen för att omvandla ett statiskt HTML till en fungerande dynamisk mall ger fördelen att inte bryta giltigheten för HTML-koden och därmed fortfarande visas korrekt, även som statiska filer.
+Ett centralt koncept för HTML är att erbjuda möjligheten att återanvända befintliga HTML-element för att definiera blocksatser. Med den här återanvändningen undviker du behovet av att infoga ytterligare avgränsare för att definiera var satsen börjar och slutar. Om du kommenterar markeringen diskret omvandlas statiskt HTML till en dynamisk mall utan att HTML-giltigheten bryts, vilket garanterar korrekt visning även som statiska filer.
 
-Ibland kanske det inte finns något befintligt element på exakt den plats där en blockprogramsats måste infogas. I sådana fall är det möjligt att infoga ett särskilt `sly`-element som automatiskt tas bort från utdata när de kopplade blockprogramsatserna körs och innehållet visas i enlighet med detta.
+Ibland kanske det inte finns något befintligt element på exakt den plats där en blockprogramsats måste infogas. I så fall kan du infoga ett särskilt `sly`-element. Det här elementet tas automatiskt bort från utdata när de kopplade blockprogramsatserna körs och innehållet visas i enlighet med detta.
 
-Följande exempel..
+Följande exempel:
 
 ```xml
 <sly data-sly-test="${properties.jcr:title && properties.jcr:description}">
@@ -70,14 +70,14 @@ Följande exempel..
 </sly>
 ```
 
-...kommer att returnera något som följande HTML, men bara om det finns både en `jcr:title`- och en `jcr:description`-egenskap definierad och om ingen av dem är tom:
+Skapar något som liknar följande HTML, men bara om det finns både en `jcr:title`- och en `jcr:description`-egenskap definierad och om ingen av dem är tom:
 
 ```xml
 <h1>MY TITLE</h1>
 <p>MY DESCRIPTION</p>
 ```
 
-En sak som du bör tänka på är att bara använda elementet `sly` när inget befintligt element kunde ha kommenterats med blockprogramsatsen. Detta beror på att `sly`-element inte ändrar det värde som språket erbjuder för att inte ändra det statiska HTML när det görs dynamiskt.
+En sak som du bör tänka på är att bara använda elementet `sly` när inget befintligt element kunde ha kommenterats med blockprogramsatsen. Orsaken är att `sly`-element hindrar det värde som språket erbjuder att inte ändra det statiska HTML när det blir dynamiskt.
 
 Om det föregående exemplet till exempel skulle ha kapslats i ett `div`-element skulle det tillagda `sly`-elementet vara stötande:
 
@@ -90,7 +90,7 @@ Om det föregående exemplet till exempel skulle ha kapslats i ett `div`-element
 </div>
 ```
 
-och elementet `div` kunde ha kommenterats med villkoret:
+Och elementet `div` kan ha kommenterats med villkoret:
 
 ```xml
 <div data-sly-test="${properties.jcr:title && properties.jcr:description}">
@@ -108,21 +108,21 @@ I följande exempel visas en HTML-kommentar på den första raden och en HTML-ko
 <!-- An HTML Comment -->
 ```
 
-HTML-kommentarer är HTML-kommentarer med en ytterligare JavaScript-liknande syntax. Hela HTML-kommentaren, och allt inom den, ignoreras helt av processorn och tas bort från utdata.
+HTML-kommentarer är HTML-kommentarer med en ytterligare JavaScript-liknande syntax. Processorn ignorerar helt hela HTML-kommentaren och allt i den och tar bort den från utdata.
 
-Innehållet i HTML-standardkommentarer skickas dock och uttrycken i kommentaren utvärderas.
+Innehållet i HTML-standardkommentarer skickas dock vidare och uttrycken i kommentaren utvärderas.
 
 HTML-kommentarer kan inte innehålla HTML-kommentarer och vice versa.
 
 ### Särskilda sammanhang {#special-contexts}
 
-För att kunna utnyttja HTML på bästa sätt är det viktigt att förstå konsekvenserna av att det baseras på HTML-syntaxen.
+För att kunna använda HTML på bästa sätt är det viktigt att förstå konsekvenserna av att det baseras på HTML-syntaxen.
 
 Mer information finns i avsnittet [Visningskontext](https://github.com/adobe/htl-spec/blob/1.4/SPECIFICATION.md#121-display-context) i HTML-specifikationen.
 
 ### Element- och attributnamn {#element-and-attribute-names}
 
-Uttryck kan bara placeras i text- eller attributvärden i HTML, men inte i elementnamn eller attributnamn, eller så är det inte längre giltigt HTML. `data-sly-element`-programsatsen kan användas för att ange elementnamn dynamiskt, och för att dynamiskt ange attributnamn, även om flera attribut ställs in samtidigt, kan `data-sly-attribute`-programsatsen användas.
+Uttryck kan bara placeras i text- eller attributvärden i HTML, men inte i elementnamn eller attributnamn, eller så är det inte längre giltigt HTML. Om du vill ange elementnamn dynamiskt kan programsatsen `data-sly-element` användas på de önskade elementen och om du vill ange attributnamn dynamiskt, även om du anger flera attribut samtidigt, kan programsatsen `data-sly-attribute` användas.
 
 ```xml
 <h1 data-sly-element="${myElementName}" data-sly-attribute="${myAttributeMap}">...</h1>
@@ -138,7 +138,7 @@ Eftersom HTML använder dataattribut för att definiera blockprogramsatser är d
 
 Anledningen till detta är att innehållet i dessa kontexter är text och inte HTML, och att inbyggda HTML-element skulle betraktas som enkla teckendata. Utan riktiga HTML-element kan inte heller `data-sly`-attribut köras.
 
-Det kan låta som en avsevärd begränsning, men det är en önskvärd begränsning eftersom mallspråket HTML inte ska missbrukas för att generera utdata som inte är HTML. Avsnittet [Använd-API för att komma åt logik](#use-api-for-accessing-logic) nedan visar hur ytterligare logik kan anropas från mallen, som kan användas om den behövs för att förbereda komplexa utdata för dessa kontexter. Ett enkelt sätt att skicka data från bakänden till ett front end-skript är till exempel att ha komponentens logik att generera en JSON-sträng, som sedan kan placeras i ett dataattribut med ett enkelt HTL-uttryck.
+Detta kan låta som en betydande begränsning. Det är dock att föredra eftersom mallspråket HTML endast ska generera giltiga utdata för HTML. Avsnittet [Använd-API för att komma åt logik](#use-api-for-accessing-logic) nedan visar hur ytterligare logik kan anropas från mallen, som kan användas om den behövs för att förbereda komplexa utdata för dessa kontexter. Om du vill skicka data från bakänden till ett front-end-skript genererar du en JSON-sträng med komponentens logik och placerar den i ett dataattribut med ett enkelt HTML-uttryck.
 
 I följande exempel visas beteendet för HTML-kommentarer, men i skript- eller formatelement observeras samma beteende:
 
@@ -149,7 +149,7 @@ I följande exempel visas beteendet för HTML-kommentarer, men i skript- eller f
 -->
 ```
 
-kommer att visa något som följande HTML:
+Ger ut något som följande HTML:
 
 ```xml
 <!--
@@ -160,7 +160,7 @@ kommer att visa något som följande HTML:
 
 ### Explicit kontext krävs {#explicit-contexts-required}
 
-Som förklaras i avsnittet [Automatisk kontextmedveten Escaping](#automatic-context-aware-escaping) nedan är ett av målen med HTML att minska riskerna med att införa XSS-problem (cross-site scripting) genom att automatiskt tillämpa kontextmedveten escape-konvertering på alla uttryck. HTML kan automatiskt identifiera sammanhanget för uttryck som placerats inuti HTML, men analyserar inte syntaxen för infogad JavaScript eller CSS, och därför förlitar sig utvecklaren på att explicit ange vilket exakt sammanhang som ska användas för sådana uttryck.
+Som förklaras i avsnittet [Automatisk kontextmedveten Escaping](#automatic-context-aware-escaping) nedan är ett av målen med HTML att minska riskerna med att införa XSS-problem (cross-site scripting) genom att automatiskt tillämpa kontextmedveten escape-konvertering på alla uttryck. HTL identifierar sammanhanget för uttryck i HTML-kod men analyserar inte infogad JavaScript eller CSS, så utvecklare måste ange den exakta kontexten för dessa uttryck.
 
 Eftersom inte rätt escape-resultat används i XSS-sårbarheter, tar HTL därför bort utdata från alla uttryck som finns i skript- och formatkontexter när kontexten inte har deklarerats.
 
@@ -179,7 +179,7 @@ I det här avsnittet går du snabbt igenom de allmänna funktionerna i mallsprå
 
 ### Använd-API för att komma åt logik {#use-api-for-accessing-logic}
 
-Med Java Use-API:t för HTML Template Language (HTL) kan en HTML-fil få åtkomst till hjälpmetoder i en anpassad Java-klass via `data-sly-use`. På så sätt kan all komplex affärslogik kapslas in i Java-koden, medan HTML-koden endast hanterar direkt markeringsproduktion.
+Med Java Use-API:t för HTML Template Language (HTL) kan en HTML-fil få åtkomst till hjälpmetoder i en anpassad Java-klass via `data-sly-use`. Med den här processen kan all komplex affärslogik kapslas in i Java-koden, medan HTML-koden endast hanterar direkt markeringsproduktion.
 
 Mer information finns i dokumentet [HTL Java Use-API](java-use-api.md).
 
@@ -197,7 +197,7 @@ Titta på följande exempel:
 
 I de flesta mallspråk skulle det här exemplet kunna skapa en XSS-säkerhetslucka (cross-site scripting), eftersom attributet `href` måste vara specifikt URL-escape även om alla variabler automatiskt är HTML-escape. Detta utelämnande är ett av de vanligaste felen, eftersom det är lätt att glömma och det är svårt att hitta på ett automatiserat sätt.
 
-För att underlätta med det kan mallspråket HTML automatiskt undgå varje variabel i det sammanhang som variabeln placeras i. Detta är möjligt tack vare att HTML förstår HTML syntax.
+För att underlätta kan mallspråket HTML automatiskt undgå varje variabel i det sammanhang som variabeln placeras i. Detta är möjligt tack vare att HTML förstår HTML syntax.
 
 Anta följande `logic.js`-fil:
 
@@ -211,7 +211,7 @@ use(function () {
 });
 ```
 
-Det inledande exemplet ger sedan följande utdata:
+Det inledande exemplet ger följande utdata:
 
 ```xml
 <p>
@@ -233,17 +233,17 @@ Titta på följande exempel:
 <p class="${properties.class}">some text</p>
 ```
 
-Om värdet för egenskapen `class` råkar vara tomt tas hela attributet `class` bort automatiskt från utdata.
+Om värdet för egenskapen `class` råkar vara tomt, tar HTML-mallspråket automatiskt bort hela `class` -attributet från utdata.
 
-Detta är möjligt igen eftersom HTML förstår HTML-syntaxen och därför bara kan visa attribut med dynamiska värden om deras värde inte är tomt. Detta är mycket praktiskt eftersom det inte går att lägga till ett villkorsblock runt attribut, vilket skulle ha gjort markeringen ogiltig och oläslig.
+Återigen är den här processen möjlig eftersom HTML förstår HTML-syntaxen och därför bara kan visa attribut med dynamiska värden om deras värde inte är tomt. Orsaken är mycket praktisk eftersom den undviker att lägga till ett villkorsblock runt attribut, vilket skulle ha gjort markeringen ogiltig och oläslig.
 
 Dessutom gäller den typ av variabel som placerats i uttrycket:
 
 * **Sträng:**
-   * **inte tom:** Anger strängen som attributvärde.
+   * **inte tom:** Anger strängen som ett attributvärde.
    * **tom:** Tar bort attributet helt.
 
-* **Number:** Anger värdet som attributvärde.
+* **Number:** Anger värdet som ett attributvärde.
 
 * **Boolean:**
    * **true:** Visar attributet utan värde (som ett booleskt HTML-attribut)
@@ -259,7 +259,7 @@ För att ställa in attribut kan programsatsen `data-sly-attribute` också vara 
 
 ## Vanliga mönster med HTML {#common-patterns-with-htl}
 
-I det här avsnittet beskrivs några vanliga scenarier och hur du bäst löser dem med mallspråket HTML.
+I det här avsnittet presenteras några vanliga scenarier. Här beskrivs hur du bäst löser dessa scenarier med HTML mallspråk.
 
 ### Läser in klientbibliotek {#loading-client-libraries}
 
@@ -296,7 +296,7 @@ Här följer två korta exempel.
 </html>
 ```
 
-I det här exemplet, om elementen HTML `head` och `body` placeras i olika filer, måste då mallen `clientlib.html` läsas in i varje fil som behöver den.
+I det här exemplet måste mallen `clientlib.html` läsas in i varje fil som kräver den om elementen HTML `head` och `body` finns i separata filer.
 
 Avsnittet om mallen och anropssatserna i [HTML-specifikationen](specification.md) innehåller mer information om hur du deklarerar och anropar sådana mallar.
 
@@ -304,7 +304,7 @@ Avsnittet om mallen och anropssatserna i [HTML-specifikationen](specification.md
 
 Det bästa och mest eleganta sättet att skicka data till klienten i allmänhet, men ännu mer med HTML, är att använda `data`-attribut.
 
-I följande exempel visas hur logiken (som också kan skrivas i Java) kan användas för att enkelt serialisera JSON-objektet som ska skickas till klienten, som sedan enkelt kan placeras i ett `data`-attribut:
+I följande exempel visas hur du serialiserar ett objekt till JSON (även möjligt i Java) för att skicka det till klienten. Den kan sedan enkelt placeras i ett `data`-attribut:
 
 ```xml
 <!--/* template.html file: */-->
@@ -325,7 +325,7 @@ use(function () {
 });
 ```
 
-Därifrån är det enkelt att föreställa sig hur en klientside JavaScript kan komma åt attributet och tolka JSON igen. Det är till exempel den JavaScript som ska placeras i ett klientbibliotek:
+Därifrån är det enkelt att föreställa sig hur en klientside JavaScript kan komma åt attributet och tolka JSON igen. Detta skulle vara den motsvarande JavaScript som ska placeras i ett klientbibliotek, till exempel:
 
 ```javascript
 var elements = document.querySelectorAll("[data-json]");
@@ -353,16 +353,16 @@ Ett specialfall, där tekniken som förklaras i avsnittet [Lyftbegränsningar f�
 </div>
 ```
 
-Såsom visas ovan kan koden som kommer att inkluderas i elementet `script` innehålla HTML-blocksatser och uttrycken behöver inte ange explicita kontexter eftersom innehållet i Handlebars-mallen har isolerats i sin egen fil. I det här exemplet visas även hur HTML-kod som körs på servern (som i elementet `h2`) kan blandas med ett mallspråk som körs på klientsidan, som Handlebars (visas i elementet `h3`).
+`script`-elementets kod kan innehålla HTML-blocksatser utan explicita kontexter, eftersom innehållet i Handlebars-mallen isoleras i sin egen fil. I det här exemplet visas även hur HTML-kod som körs på servern (som i elementet `h2`) kan blandas med ett mallspråk som körs på klientsidan, som Handlebars (visas i elementet `h3`).
 
 En modernare teknik skulle dock vara att använda elementet `template` i stället, eftersom fördelen då skulle vara att det inte behövs för att isolera innehållet i mallarna i separata filer.
 
 ### Upphävande av begränsningar i specialsammanhang {#lifting-limitations-of-special-contexts}
 
-I de specialfall där det behövs för att kringgå begränsningarna för skript, format och kommentarskontexter, är det möjligt att isolera deras innehåll i en separat HTML-fil. Allt som finns i en egen fil tolkas av HTML som ett normalt HTML-fragment, vilket utesluter det begränsade sammanhang som det kan ha inkluderats från.
+I de specialfall där det behövs för att kringgå begränsningarna för skript, format och kommentarskontexter, är det möjligt att isolera deras innehåll i en separat HTML-fil. HTML tolkar allt i sin egen fil som ett HTML-standardfragment och ignorerar alla begränsningar som fanns där det inkluderades.
 
 Ett exempel finns i avsnittet [Arbeta med klientmallar](#working-with-client-side-templates) längre ned.
 
 >[!CAUTION]
 >
->Den här tekniken kan medföra XSS-problem (cross-site scripting) och säkerhetsaspekterna bör noggrant undersökas om detta måste användas. Det finns vanligtvis bättre sätt att implementera samma sak än att förlita sig på den här metoden.
+>Den här tekniken kan medföra XSS-problem (cross-site scripting). Säkerhetsaspekterna bör noggrant undersökas om denna metod används. Det finns vanligtvis bättre sätt att implementera samma sak än att förlita sig på den här metoden.

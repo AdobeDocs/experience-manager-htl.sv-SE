@@ -1,17 +1,16 @@
 ---
-source-git-commit: 14c95467b32e522b90b7dba66df359c7da86dfca
+source-git-commit: 22f62868df0fcfc558e5d62434dde843a9f3ca83
 workflow-type: tm+mt
-translation-type: tm+mt
-source-wordcount: '76'
+source-wordcount: '74'
 ht-degree: 0%
 
 ---
 # Adobe Experience Manager HTML-dokumentation
 
-Det här är databasen för dokumentationen för Adobe Experience Manager HTML-mallspråk (HTL).
+Databasen för dokumentationen för Adobe Experience Manager HTML Templating Language (HTL).
 
 Dina bidrag till dokumentationen är välkomna. Se följande resurser:
 
-* [contribute.](contributing.md) mdEn översikt över hur du kan bidra till dokumentationen.
-* [guidelines.](guidelines.md) mdEn översikt över vad som förväntas i bidragen och hur du komponerar dokumentationsbidragen.
-* [code-of-behavior.](code-of-conduct.md) mdFör en översikt över de beteendestandarder vi förväntar oss när du bidrar till detta dokumentationsprojekt.
+* [contribute.md](contributing.md) En översikt över hur du kan bidra till dokumentationen.
+* [guidelines.md](guidelines.md) En översikt över vad som förväntas i bidragen och hur du komponerar dokumentationsbidragen.
+* [code-of-behavior.md](code-of-conduct.md) En översikt över beteendestandarder som Adobe förväntar sig när du bidrar till det här dokumentationsprojektet.
