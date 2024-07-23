@@ -2,7 +2,7 @@
 title: Komma igång med HTML
 description: Lär dig mer om HTML, det rekommenderade och rekommenderade serverbaserade mallsystemet för HTML i AEM, och förstå de viktigaste begreppen för språket och dess grundläggande konstruktion.
 exl-id: c95eb1b3-3b96-4727-8f4f-d54e7136a8f9
-source-git-commit: ebeac25c38b81c92011c163c7860688f43547a7d
+source-git-commit: c6bb6f0954ada866cec574d480b6ea5ac0b51a3f
 workflow-type: tm+mt
 source-wordcount: '2050'
 ht-degree: 0%
@@ -18,7 +18,7 @@ Det här dokumentet ger en översikt över syftet med HTML samt en introduktion 
 
 >[!TIP]
 >
->I det här dokumentet presenteras syftet med HTML och en översikt över dess grundläggande struktur och begrepp. Om du har frågor om specifik syntax kan du läsa [HTML-specifikationen.](specification.md)
+>I det här dokumentet presenteras syftet med HTML och en översikt över dess grundläggande struktur och begrepp. Om du har frågor om specifik syntax kan du läsa [HTML-specifikationen](specification.md).
 
 ## HTML-lager {#layers}
 

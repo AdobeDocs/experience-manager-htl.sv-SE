@@ -2,7 +2,7 @@
 title: HTL Java Use-API
 description: Med HTL Java Use-API:t kan en HTML-fil få åtkomst till hjälpmetoder i en anpassad Java-klass.
 exl-id: 9a9a2bf8-d178-4460-a3ec-cbefcfc09959
-source-git-commit: ebeac25c38b81c92011c163c7860688f43547a7d
+source-git-commit: c6bb6f0954ada866cec574d480b6ea5ac0b51a3f
 workflow-type: tm+mt
 source-wordcount: '1137'
 ht-degree: 0%
@@ -194,7 +194,7 @@ public class Info extends WCMUsePojo {
 
 Metoden [activate](https://developer.adobe.com/experience-manager/reference-materials/6-5/javadoc/com/adobe/cq/sightly/WCMUsePojo.html) används vanligtvis för att beräkna och lagra (i medlemsvariabler) de värden som behövs i din HTML-kod utifrån det aktuella sammanhanget (till exempel aktuell begäran och resurs).
 
-Klassen `WCMUsePojo` ger åtkomst till samma uppsättning kontextobjekt som finns i en HTML-fil (se dokumentet [Globala objekt.](global-objects.md))
+Klassen `WCMUsePojo` ger åtkomst till samma uppsättning kontextobjekt som finns i en HTML-fil (se dokumentet [Globala objekt](global-objects.md)).
 
 I en klass som utökar `WCMUsePojo` kan du komma åt kontextobjekt med hjälp av deras namn:
 
@@ -312,7 +312,7 @@ I det här avsnittet introduceras ytterligare funktioner som går utöver det en
 
 Parametrar kan skickas till en use-class vid initiering.
 
-Mer information finns i dokumentationen för Sling [HTL Scripting Engine.](https://sling.apache.org/documentation/bundles/scripting/scripting-htl.html#passing-parameters-to-java-use-objects)
+Mer information finns i dokumentationen för Sling [HTL-skriptmotorn](https://sling.apache.org/documentation/bundles/scripting/scripting-htl.html#passing-parameters-to-java-use-objects).
 
 ### Paketerad Java-klass {#bundled-java-class}
 

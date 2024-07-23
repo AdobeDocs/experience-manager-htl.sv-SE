@@ -1,5 +1,5 @@
 ---
-source-git-commit: 22f62868df0fcfc558e5d62434dde843a9f3ca83
+source-git-commit: c6bb6f0954ada866cec574d480b6ea5ac0b51a3f
 workflow-type: tm+mt
 source-wordcount: '502'
 ht-degree: 0%
@@ -30,7 +30,7 @@ Vilken metod du väljer beror på hur bekväm du själv redigerar dokumentatione
 
 >[!NOTE]
 >
->Bidrag som du skickar omfattas av [Adobe användarvillkoren.](https://www.adobe.com/legal/terms.html)
+>Bidrag som du skickar in omfattas av [Adobe användarvillkoren](https://www.adobe.com/legal/terms.html).
 
 ### Skapa ett problem {#create-an-issue}
 
