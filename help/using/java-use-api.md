@@ -2,9 +2,9 @@
 title: HTL Java Use-API
 description: Med HTL Java Use-API:t kan en HTML-fil få åtkomst till hjälpmetoder i en anpassad Java-klass.
 exl-id: 9a9a2bf8-d178-4460-a3ec-cbefcfc09959
-source-git-commit: c6bb6f0954ada866cec574d480b6ea5ac0b51a3f
+source-git-commit: 5e1dce693dc61300530837c996f45d793c0b07e6
 workflow-type: tm+mt
-source-wordcount: '1140'
+source-wordcount: '1135'
 ht-degree: 0%
 
 ---
@@ -155,7 +155,7 @@ public class Info extends WCMUsePojo {
 
 ### Utökar `WCMUsePojo` {#extending-wcmusepojo}
 
-Det finns flera sätt att införliva en Java-klass med HTML (se avsnittet [Alternativ till `WCMUsePojo`](#alternatives-to-wcmusepojo)), men det enklaste är att utöka klassen `WCMUsePojo`. I det här exemplet `/apps/my-example/component/info/Info.java`:
+Det finns flera sätt att införliva en Java-klass med HTML, men det enklaste är att utöka klassen `WCMUsePojo`. I det här exemplet `/apps/my-example/component/info/Info.java`:
 
 ```java
 package apps.my_example.components.info;
