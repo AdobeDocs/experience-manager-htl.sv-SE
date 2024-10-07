@@ -1,11 +1,11 @@
 ---
 title: Globala HTML-objekt
-description: Lär dig mer om uppräkningsbara objekt, Java-baserade objekt och JavaScript-baserade objekt i HTML.
+description: Lär dig mer om uppräkningsbara objekt och Java-baserade objekt i HTML.
 exl-id: ca590b92-f1b3-4e44-a04a-a2c10dff256f
-source-git-commit: c6bb6f0954ada866cec574d480b6ea5ac0b51a3f
+source-git-commit: b585f03d600319414b92a95f98cf9293d91538b6
 workflow-type: tm+mt
-source-wordcount: '164'
-ht-degree: 1%
+source-wordcount: '205'
+ht-degree: 0%
 
 ---
 
@@ -63,3 +63,9 @@ Motsvarande Java-objekt har bakomliggande baksidor.
 ## JavaScript-baserade objekt {#javascript-backed-objects}
 
 Det går att backa HTML-logiken med JavaScript. Den rekommenderade eller rekommenderade metoden är att använda [segmenteringsmodeller](https://sling.apache.org/documentation/bundles/models.html).
+
+>[!NOTE]
+>
+>[API:t för JavaScript-användning](https://github.com/adobe/htl-spec/blob/master/SPECIFICATION.md#42-javascript-use-api) har tagits bort för användning med AEM as a Cloud Service. Använd [Java Use API i stället.](https://experienceleague.adobe.com/en/docs/experience-manager-htl/content/java-use-ap)
+>
+>[Mer information om borttagna funktioner finns i versionsinformationen för AEM as a Cloud Service](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/release-notes/deprecated-removed-features).
