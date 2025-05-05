@@ -44,7 +44,7 @@ Diagrammet ovan visar följande effektivitetsförbättringar som kan göras möj
 
 ## Videointroduktion {#video}
 
-Följande video från en [AEM Gems-session](https://experienceleague.adobe.com/en/docs/events/experience-manager-gems-recordings/gems2014/aem-introduction-to-htl) ger en översikt över syftet med HTML samt exempel på implementering.
+Följande video från en [AEM Gems-session](https://experienceleague.adobe.com/sv/docs/events/experience-manager-gems-recordings/gems2014/aem-introduction-to-htl) ger en översikt över syftet med HTML samt exempel på implementering.
 
 >[!VIDEO](https://video.tv.adobe.com/v/19504/?quality=9)
 

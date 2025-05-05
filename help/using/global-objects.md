@@ -68,4 +68,4 @@ Det går att backa HTML-logiken med JavaScript. Den rekommenderade eller rekomme
 >
 >[API:t för JavaScript-användning](https://github.com/adobe/htl-spec/blob/master/SPECIFICATION.md#42-javascript-use-api) har tagits bort för användning med AEM as a Cloud Service. Använd [Java Use API i stället.](https://experienceleague.adobe.com/en/docs/experience-manager-htl/content/java-use-ap)
 >
->[Mer information om borttagna funktioner finns i versionsinformationen för AEM as a Cloud Service](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/release-notes/deprecated-removed-features).
+>[Mer information om borttagna funktioner finns i versionsinformationen för AEM as a Cloud Service](https://experienceleague.adobe.com/sv/docs/experience-manager-cloud-service/content/release-notes/deprecated-removed-features).
