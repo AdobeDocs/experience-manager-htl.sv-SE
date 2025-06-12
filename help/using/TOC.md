@@ -2,14 +2,14 @@
 sub-product: Adobe Experience Manager HTL
 user-guide-title: Adobe Experience Manager HTL
 breadcrumb-title: Användarhandbok om HTL
-user-guide-description: Använd HTL (HTML Template Language) för att skapa ett storföretagsbaserat webbramverk.
+user-guide-description: För traditionella AEM-projekt använder du HTML mallspråk (HTL) för att skapa ett webbaserat ramverk på företagsnivå.
 feature-set: Experience Manager
 feature: Developer Tools
 role: Developer
-source-git-commit: 88edbd2fd66de960460df5928a3b42846d32066b
+source-git-commit: e9148a152c5b9298233346d93809c80e35f980d0
 workflow-type: tm+mt
-source-wordcount: '46'
-ht-degree: 39%
+source-wordcount: '50'
+ht-degree: 12%
 
 ---
 
@@ -21,7 +21,7 @@ ht-degree: 39%
 + [HTML-specifikationen](specification.md)
 + [Globala HTML-objekt](global-objects.md)
 + [HTL Java Use-API](java-use-api.md)
-+ [AEM](aem-extensions.md)
++ [AEM Extensions](aem-extensions.md)
 + [Utvecklarverktyg](developer-tools.md)
 + [Kodexempel](code-samples.md)
 + [Historik för HTML](history.md)
