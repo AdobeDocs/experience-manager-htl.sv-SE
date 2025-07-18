@@ -16,7 +16,7 @@ ht-degree: 0%
 >
 >**Har du övervägt Edge Delivery Services för AEM?**
 >
->Du kan fortsätta använda metoderna som beskrivs i det här dokumentet för befintliga projekt. För nya projekt rekommenderar Adobe att du använder [Edge Delivery Services.](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/edge-delivery/overview)
+>Du kan fortsätta använda metoderna som beskrivs i det här dokumentet för befintliga projekt. För nya projekt rekommenderar Adobe att du använder [Edge Delivery Services.](https://experienceleague.adobe.com/sv/docs/experience-manager-cloud-service/content/edge-delivery/overview)
 
 HTML mallspråk (HTL), som stöds av Adobe Experience Manager (AEM), har som mål att tillhandahålla ett högproduktivt webbramverk på företagsnivå som förbättrar säkerheten. Det gör det även möjligt för HTML-utvecklare utan Java-kunskaper att delta bättre i AEM Projects.
 
@@ -50,7 +50,7 @@ Diagrammet ovan visar följande effektivitetsförbättringar som kan göras möj
 
 ## Videointroduktion {#video}
 
-Följande video från en [AEM Gems-session](https://experienceleague.adobe.com/en/docs/events/experience-manager-gems-recordings/gems2014/aem-introduction-to-htl) ger en översikt över syftet med HTML samt exempel på implementering.
+Följande video från en [AEM Gems-session](https://experienceleague.adobe.com/sv/docs/events/experience-manager-gems-recordings/gems2014/aem-introduction-to-htl) ger en översikt över syftet med HTML samt exempel på implementering.
 
 >[!VIDEO](https://video.tv.adobe.com/v/19504/?quality=9)
 
