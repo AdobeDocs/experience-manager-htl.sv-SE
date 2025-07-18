@@ -1,10 +1,10 @@
 ---
 title: Komma igång med HTML
-description: Lär dig mer om HTML, det rekommenderade och rekommenderade serverbaserade mallsystemet för HTML i AEM, och förstå de viktigaste begreppen för språket och dess grundläggande konstruktion.
+description: Läs om HTML, det rekommenderade och rekommenderade serverbaserade mallsystemet för HTML i AEM, och förstå de viktigaste begreppen för språket och dess grundläggande konstruktion.
 exl-id: c95eb1b3-3b96-4727-8f4f-d54e7136a8f9
-source-git-commit: c6bb6f0954ada866cec574d480b6ea5ac0b51a3f
+source-git-commit: addc69e4b4e56a9b1c5f91ce9af26fa2d326d981
 workflow-type: tm+mt
-source-wordcount: '2050'
+source-wordcount: '2045'
 ht-degree: 0%
 
 ---
@@ -12,7 +12,7 @@ ht-degree: 0%
 
 # Komma igång med HTML {#getting-started-with-htl}
 
-HTML (HTML Template Language) är det rekommenderade och rekommenderade serversidesmallsystemet för HTML i Adobe Experience Manager. Precis som i alla mallsystem på serversidan i HTML definierar en HTML-fil utdata som skickas till webbläsaren genom att ange själva HTML, viss grundläggande presentationslogik och variabler som ska utvärderas vid körning.
+HTML Template Language (HTL) är det rekommenderade serversidesmallsystemet för HTML i Adobe Experience Manager. Precis som i alla mallsystem på serversidan i HTML definierar en HTML-fil utdata som skickas till webbläsaren genom att ange själva HTML, viss grundläggande presentationslogik och variabler som ska utvärderas vid körning.
 
 Det här dokumentet ger en översikt över syftet med HTML samt en introduktion till grundläggande begrepp och konstruktioner för språket.
 
@@ -25,14 +25,14 @@ Det här dokumentet ger en översikt över syftet med HTML samt en introduktion 
 I AEM definierar ett antal lager HTML.
 
 1. **[HTL-specifikation](specification.md)** - HTML är en öppen källkodsbaserad, plattformsoberoende specifikation som alla kan implementera.
-1. **[Sling HTL Scripting Engine](specification.md)** - Sling-projektet har skapat referensimplementeringen av HTML, som används av AEM.
-1. **[AEM tillägg](specification.md)** - AEM bygger ovanpå Sling HTML-skriptmotorn och ger utvecklare praktiska funktioner som är specifika för AEM.
+1. **[`Sling`HTML-skriptmotor](specification.md)** - `Sling`-projektet har skapat referensimplementeringen av HTML, som används av AEM.
+1. **[AEM-tillägg](specification.md)** - AEM bygger ovanpå `Sling` HTML-skriptmotorn och ger utvecklare praktiska funktioner som är specifika för AEM.
 
-Denna HTML-dokumentation fokuserar på att använda HTML för att utveckla AEM lösningar. Det berör alla tre lager och kopplar externa resurser efter behov.
+Denna HTML-dokumentation fokuserar på att använda HTML för att utveckla AEM-lösningar. Det berör alla tre lager och kopplar externa resurser efter behov.
 
 ## Grundläggande begrepp i HTML {#fundamental-concepts-of-htl}
 
-I mallspråket HTML används ett uttrycksspråk för att infoga innehållsdelar i den återgivna koden, och dataattribut i HTML5 för att definiera programsatser över kodblock (som villkor eller iterationer). När HTML kompileras till Java-servrar utvärderas både uttrycken och HTML-dataattributen helt på serversidan och inget visas i HTML.
+I HTML Template Language används ett uttrycksspråk för att infoga innehållsdelar i den återgivna koden, och HTML5-dataattribut för att definiera satser över kodblock (som villkor eller iterationer). När HTML kompileras till Java-servrar utvärderas både uttrycken och HTML-dataattributen helt på serversidan och inget visas i den resulterande HTML.
 
 >[!TIP]
 >
@@ -50,14 +50,14 @@ Här är ett första exempel som kan finnas som i en `template.html`-fil:
 
 Två olika typer av syntaxer kan särskiljas:
 
-* **Blockprogramsatser** - Om du vill visa elementet `<h1>` villkorligt använder du ett `data-sly-test` HTML5-dataattribut. HTL innehåller flera sådana attribut, som tillåter att beteenden kopplas till valfritt HTML-element, och alla har prefixet `data-sly`.
+* **Blockprogramsatser** - Om du vill visa elementet `<h1>` villkorligt använder du ett `data-sly-test` HTML5-dataattribut. HTL innehåller flera sådana attribut, som tillåter att beteenden kopplas till ett HTML-element, och alla har prefixet `data-sly`.
 * **Uttrycksspråk** - Tecknen `${` och `}` avgränsar HTML-uttryck. Vid körning utvärderas dessa uttryck och deras värde injiceras i den utgående HTML-strömmen.
 
 Mer information om båda syntaxerna finns i [HTML-specifikationen](specification.md).
 
 ### Elementet SLY {#the-sly-element}
 
-Ett centralt koncept för HTML är att erbjuda möjligheten att återanvända befintliga HTML-element för att definiera blocksatser. Med den här återanvändningen undviker du behovet av att infoga ytterligare avgränsare för att definiera var satsen börjar och slutar. Om du kommenterar markeringen diskret omvandlas statiskt HTML till en dynamisk mall utan att HTML-giltigheten bryts, vilket garanterar korrekt visning även som statiska filer.
+Ett centralt koncept för HTML är att erbjuda möjligheten att återanvända befintliga HTML-element för att definiera blocksatser. Med den här återanvändningen undviker du behovet av att infoga ytterligare avgränsare för att definiera var satsen börjar och slutar. När du kommenterar markeringen omvandlas statiska HTML diskret till dynamiska mallar utan att HTML-giltigheten bryts, vilket säkerställer korrekt visning även som statiska filer.
 
 Ibland kanske det inte finns något befintligt element på exakt den plats där en blockprogramsats måste infogas. I så fall kan du infoga ett särskilt `sly`-element. Det här elementet tas automatiskt bort från utdata när de kopplade blockprogramsatserna körs och innehållet visas i enlighet med detta.
 
@@ -70,14 +70,14 @@ Följande exempel:
 </sly>
 ```
 
-Skapar något som liknar följande HTML, men bara om det finns både en `jcr:title`- och en `jcr:description`-egenskap definierad och om ingen av dem är tom:
+Skapar något som följande HTML, men bara om det finns både en `jcr:title`- och en `jcr:description`-egenskap definierad och om ingen av dem är tom:
 
 ```xml
 <h1>MY TITLE</h1>
 <p>MY DESCRIPTION</p>
 ```
 
-En sak som du bör tänka på är att bara använda elementet `sly` när inget befintligt element kunde ha kommenterats med blockprogramsatsen. Orsaken är att `sly`-element hindrar det värde som språket erbjuder att inte ändra det statiska HTML när det blir dynamiskt.
+En sak som du bör tänka på är att bara använda elementet `sly` när inget befintligt element kunde ha kommenterats med blockprogramsatsen. Orsaken är att `sly`-element hindrar det värde som språket erbjuder från att inte ändra den statiska HTML när den blir dynamisk.
 
 Om det föregående exemplet till exempel skulle ha kapslats i ett `div`-element skulle det tillagda `sly`-elementet vara stötande:
 
@@ -110,19 +110,19 @@ I följande exempel visas en HTML-kommentar på den första raden och en HTML-ko
 
 HTML-kommentarer är HTML-kommentarer med en ytterligare JavaScript-liknande syntax. Processorn ignorerar helt hela HTML-kommentaren och allt i den och tar bort den från utdata.
 
-Innehållet i HTML-standardkommentarer skickas dock vidare och uttrycken i kommentaren utvärderas.
+Innehållet i vanliga HTML-kommentarer skickas dock vidare och uttrycken i kommentaren utvärderas.
 
-HTML-kommentarer kan inte innehålla HTML-kommentarer och vice versa.
+HTML kommentarer får inte innehålla HTML-kommentarer och vice versa.
 
 ### Särskilda sammanhang {#special-contexts}
 
-För att kunna använda HTML på bästa sätt är det viktigt att förstå konsekvenserna av att det baseras på HTML-syntaxen.
+För att kunna använda HTML på bästa sätt är det viktigt att du är väl införstådd med konsekvenserna av att det baseras på HTML syntax.
 
 Mer information finns i avsnittet [Visningskontext](https://github.com/adobe/htl-spec/blob/1.4/SPECIFICATION.md#121-display-context) i HTML-specifikationen.
 
 ### Element- och attributnamn {#element-and-attribute-names}
 
-Uttryck kan bara placeras i text- eller attributvärden i HTML, men inte i elementnamn eller attributnamn, eller så är det inte längre giltigt HTML. Om du vill ange elementnamn dynamiskt kan programsatsen `data-sly-element` användas på de önskade elementen och om du vill ange attributnamn dynamiskt, även om du anger flera attribut samtidigt, kan programsatsen `data-sly-attribute` användas.
+Uttryck kan bara placeras i HTML text- eller attributvärden, men inte i elementnamn eller attributnamn, eller så är de inte längre giltiga i HTML. Om du vill ange elementnamn dynamiskt kan programsatsen `data-sly-element` användas på de önskade elementen och om du vill ange attributnamn dynamiskt, även om du anger flera attribut samtidigt, kan programsatsen `data-sly-attribute` användas.
 
 ```xml
 <h1 data-sly-element="${myElementName}" data-sly-attribute="${myAttributeMap}">...</h1>
@@ -136,9 +136,9 @@ Eftersom HTML använder dataattribut för att definiera blockprogramsatser är d
 * Skriptelement
 * Formatelement
 
-Anledningen till detta är att innehållet i dessa kontexter är text och inte HTML, och att inbyggda HTML-element skulle betraktas som enkla teckendata. Utan riktiga HTML-element kan inte heller `data-sly`-attribut köras.
+Anledningen till detta är att innehållet i dessa kontexter är text och inte HTML, och att de innehåller HTML-element skulle betraktas som enkla teckendata. Utan riktiga HTML-element kan inte heller `data-sly`-attribut köras.
 
-Detta kan låta som en betydande begränsning. Det är dock att föredra eftersom mallspråket HTML endast ska generera giltiga utdata för HTML. Avsnittet [Använd-API för att komma åt logik](#use-api-for-accessing-logic) nedan visar hur ytterligare logik kan anropas från mallen, som kan användas om den behövs för att förbereda komplexa utdata för dessa kontexter. Om du vill skicka data från bakänden till ett front-end-skript genererar du en JSON-sträng med komponentens logik och placerar den i ett dataattribut med ett enkelt HTML-uttryck.
+Detta kan låta som en betydande begränsning. Det är dock att föredra eftersom HTML mallspråk endast ska generera giltiga HTML-utdata. Avsnittet [Använd-API för att komma åt logik](#use-api-for-accessing-logic) nedan visar hur ytterligare logik kan anropas från mallen, som kan användas om den behövs för att förbereda komplexa utdata för dessa kontexter. Om du vill skicka data från bakänden till ett front-end-skript genererar du en JSON-sträng med komponentens logik och placerar den i ett dataattribut med ett enkelt HTML-uttryck.
 
 I följande exempel visas beteendet för HTML-kommentarer, men i skript- eller formatelement observeras samma beteende:
 
@@ -175,11 +175,11 @@ Mer information om hur du styr escape-konverteringen finns i avsnittet [Visnings
 
 ## Allmänna funktioner för HTML {#general-capabilities-of-htl}
 
-I det här avsnittet går du snabbt igenom de allmänna funktionerna i mallspråket HTML.
+Här går vi igenom de allmänna funktionerna i HTML Template Language.
 
 ### Använd-API för att komma åt logik {#use-api-for-accessing-logic}
 
-Med Java Use-API:t för HTML Template Language (HTL) kan en HTML-fil få åtkomst till hjälpmetoder i en anpassad Java-klass via `data-sly-use`. Med den här processen kan all komplex affärslogik kapslas in i Java-koden, medan HTML-koden endast hanterar direkt markeringsproduktion.
+Java Use-API:t för HTML Template Language (HTL) ger en HTML-fil åtkomst till hjälpmetoder i en anpassad Java-klass via `data-sly-use`. Med den här processen kan all komplex affärslogik kapslas in i Java-koden, medan HTML-koden endast hanterar direkt markeringsproduktion.
 
 Mer information finns i dokumentet [HTL Java Use-API](java-use-api.md).
 
@@ -197,7 +197,7 @@ Titta på följande exempel:
 
 I de flesta mallspråk skulle det här exemplet kunna skapa en XSS-säkerhetslucka (cross-site scripting), eftersom attributet `href` måste vara specifikt URL-escape även om alla variabler automatiskt är HTML-escape. Detta utelämnande är ett av de vanligaste felen, eftersom det är lätt att glömma och det är svårt att hitta på ett automatiserat sätt.
 
-För att underlätta kan mallspråket HTML automatiskt undgå varje variabel i det sammanhang som variabeln placeras i. Detta är möjligt tack vare att HTML förstår HTML syntax.
+För att underlätta kan HTML mallspråk automatiskt undgå varje variabel i det sammanhang som variabeln placeras i. Detta är möjligt tack vare att HTML förstår HTML syntax.
 
 Anta följande `logic.js`-fil:
 
@@ -233,9 +233,9 @@ Titta på följande exempel:
 <p class="${properties.class}">some text</p>
 ```
 
-Om värdet för egenskapen `class` råkar vara tomt, tar HTML-mallspråket automatiskt bort hela `class` -attributet från utdata.
+Om värdet för egenskapen `class` råkar vara tomt tar HTML mallspråk automatiskt bort hela attributet `class` från utdata.
 
-Återigen är den här processen möjlig eftersom HTML förstår HTML-syntaxen och därför bara kan visa attribut med dynamiska värden om deras värde inte är tomt. Orsaken är mycket praktisk eftersom den undviker att lägga till ett villkorsblock runt attribut, vilket skulle ha gjort markeringen ogiltig och oläslig.
+Återigen är den här processen möjlig eftersom HTML förstår HTML-syntax och därför bara kan visa attribut med dynamiska värden om deras värde inte är tomt. Orsaken är mycket praktisk eftersom den undviker att lägga till ett villkorsblock runt attribut, vilket skulle ha gjort markeringen ogiltig och oläslig.
 
 Dessutom gäller den typ av variabel som placerats i uttrycket:
 
@@ -296,7 +296,7 @@ Här följer två korta exempel.
 </html>
 ```
 
-I det här exemplet måste mallen `clientlib.html` läsas in i varje fil som kräver den om elementen HTML `head` och `body` finns i separata filer.
+I det här exemplet måste mallen `head` läsas in i varje fil som kräver den om elementen `body` och `clientlib.html` finns i separata filer.
 
 Avsnittet om mallen och anropssatserna i [HTML-specifikationen](specification.md) innehåller mer information om hur du deklarerar och anropar sådana mallar.
 
@@ -337,7 +337,7 @@ for (var i = 0; i < elements.length; i++) {
 
 ### Arbeta med mallar på klientsidan {#working-with-client-side-templates}
 
-Ett specialfall, där tekniken som förklaras i avsnittet [Lyftbegränsningar för specialkontexter](#lifting-limitations-of-special-contexts) kan användas på ett korrekt sätt, är att skriva klientsidesmallar (till exempel Handlebars) som finns i `scrip` -element. Anledningen till att den här tekniken kan användas i så fall är att `script`-elementet då inte innehåller JavaScript som förväntat, utan ytterligare HTML-element. Här är ett exempel på hur det skulle fungera:
+Ett specialfall, där tekniken som förklaras i avsnittet [Lyftbegränsningar för specialkontexter](#lifting-limitations-of-special-contexts) kan användas på ett korrekt sätt, är att skriva klientsidesmallar (till exempel Handlebars) som finns i `scrip` -element. Anledningen till att den här tekniken kan användas i så fall är att elementet `script` inte innehåller JavaScript som förväntat, utan ytterligare HTML-element. Här är ett exempel på hur det skulle fungera:
 
 ```xml
 <!--/* template.html file: */-->
@@ -355,11 +355,11 @@ Ett specialfall, där tekniken som förklaras i avsnittet [Lyftbegränsningar f�
 
 `script`-elementets kod kan innehålla HTML-blocksatser utan explicita kontexter, eftersom innehållet i Handlebars-mallen isoleras i sin egen fil. I det här exemplet visas även hur HTML-kod som körs på servern (som i elementet `h2`) kan blandas med ett mallspråk som körs på klientsidan, som Handlebars (visas i elementet `h3`).
 
-En modernare teknik skulle dock vara att använda elementet `template` i stället, eftersom fördelen då skulle vara att det inte behövs för att isolera innehållet i mallarna i separata filer.
+En modernare teknik alls skulle dock vara att använda elementet `template` i stället, eftersom fördelen då skulle vara att det inte behövs för att isolera innehållet i mallarna i separata filer.
 
 ### Upphävande av begränsningar i specialsammanhang {#lifting-limitations-of-special-contexts}
 
-I de specialfall där det behövs för att kringgå begränsningarna för skript, format och kommentarskontexter, är det möjligt att isolera deras innehåll i en separat HTML-fil. HTML tolkar allt i sin egen fil som ett HTML-standardfragment och ignorerar alla begränsningar som fanns där det inkluderades.
+I de specialfall där det behövs för att kringgå begränsningarna för skript, format och kommentarskontexter, är det möjligt att isolera deras innehåll i en separat HTML-fil. HTML tolkar allt i sin egen fil som ett vanligt HTML-fragment och ignorerar alla begränsningar som fanns där det inkluderades.
 
 Ett exempel finns i avsnittet [Arbeta med klientmallar](#working-with-client-side-templates) längre ned.
 

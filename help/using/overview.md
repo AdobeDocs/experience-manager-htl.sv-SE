@@ -2,7 +2,7 @@
 title: HTML - översikt
 description: Upptäck hur AEM stöder HTML (HTML Template Language) för att skapa ett produktivt webbramverk på företagsnivå som förbättrar säkerheten. Med det här ramverket kan HTML-utvecklare utan Java-kunskaper delta bättre i AEM Projects.
 exl-id: 5d06ff25-d681-4b95-8375-c28a8364eb7e
-source-git-commit: 9735ca6ae09ca899c69edd9b63d2e85ad5d6f904
+source-git-commit: addc69e4b4e56a9b1c5f91ce9af26fa2d326d981
 workflow-type: tm+mt
 source-wordcount: '677'
 ht-degree: 0%
@@ -16,7 +16,7 @@ ht-degree: 0%
 >
 >**Har du övervägt Edge Delivery Services för AEM?**
 >
->Du kan fortsätta använda metoderna som beskrivs i det här dokumentet för befintliga projekt. För nya projekt rekommenderar Adobe att du drar nytta av [Edge Delivery Services.](https://experienceleague.adobe.com/sv/docs/experience-manager-cloud-service/content/edge-delivery/overview)
+>Du kan fortsätta använda metoderna som beskrivs i det här dokumentet för befintliga projekt. För nya projekt rekommenderar Adobe att du använder [Edge Delivery Services.](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/edge-delivery/overview)
 
 HTML mallspråk (HTL), som stöds av Adobe Experience Manager (AEM), har som mål att tillhandahålla ett högproduktivt webbramverk på företagsnivå som förbättrar säkerheten. Det gör det även möjligt för HTML-utvecklare utan Java-kunskaper att delta bättre i AEM Projects.
 
@@ -50,7 +50,7 @@ Diagrammet ovan visar följande effektivitetsförbättringar som kan göras möj
 
 ## Videointroduktion {#video}
 
-Följande video från en [AEM Gems-session](https://experienceleague.adobe.com/sv/docs/events/experience-manager-gems-recordings/gems2014/aem-introduction-to-htl) ger en översikt över syftet med HTML samt exempel på implementering.
+Följande video från en [AEM Gems-session](https://experienceleague.adobe.com/en/docs/events/experience-manager-gems-recordings/gems2014/aem-introduction-to-htl) ger en översikt över syftet med HTML samt exempel på implementering.
 
 >[!VIDEO](https://video.tv.adobe.com/v/19504/?quality=9)
 

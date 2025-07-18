@@ -1,7 +1,7 @@
 ---
-source-git-commit: 22f62868df0fcfc558e5d62434dde843a9f3ca83
+source-git-commit: addc69e4b4e56a9b1c5f91ce9af26fa2d326d981
 workflow-type: tm+mt
-source-wordcount: '74'
+source-wordcount: '73'
 ht-degree: 0%
 
 ---
@@ -13,4 +13,4 @@ Dina bidrag till dokumentationen är välkomna. Se följande resurser:
 
 * [contribute.md](contributing.md) En översikt över hur du kan bidra till dokumentationen.
 * [guidelines.md](guidelines.md) En översikt över vad som förväntas i bidragen och hur du komponerar dokumentationsbidragen.
-* [code-of-behavior.md](code-of-conduct.md) En översikt över beteendestandarder som Adobe förväntar sig när du bidrar till det här dokumentationsprojektet.
+* [code-of-behavior.md](code-of-conduct.md) En översikt över de beteendestandarder som Adobe förväntar sig när du bidrar till det här dokumentationsprojektet.

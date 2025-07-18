@@ -2,9 +2,9 @@
 title: HTL Java Use-API
 description: Med HTL Java Use-API:t kan en HTML-fil få åtkomst till hjälpmetoder i en anpassad Java-klass.
 exl-id: 9a9a2bf8-d178-4460-a3ec-cbefcfc09959
-source-git-commit: 5e1dce693dc61300530837c996f45d793c0b07e6
+source-git-commit: addc69e4b4e56a9b1c5f91ce9af26fa2d326d981
 workflow-type: tm+mt
-source-wordcount: '1135'
+source-wordcount: '1132'
 ht-degree: 0%
 
 ---
@@ -122,7 +122,7 @@ Nu ska vi titta på de olika delarna av koden.
 Java-klassen kan installeras på två sätt:
 
 * **Lokal** - I en lokal installation placeras Java-källfilen bredvid HTML-filen i samma databasmapp. Källan kompileras automatiskt vid behov. Inget separat kompilerings- eller paketeringssteg krävs.
-* **Paket** - I en paketinstallation måste Java-klassen kompileras och distribueras i ett OSGi-paket med hjälp av AEM standarddistributionsmekanism (se avsnittet [Paketerad Java-klass](#bundled-java-class)).
+* **Paket** - I en paketinstallation måste Java-klassen kompileras och distribueras i ett OSGi-paket med AEM standardmetod för paketdistribution (se avsnittet [Paketerad Java-klass](#bundled-java-class)).
 
 Om du vill veta vilken metod du ska använda när bör du tänka på följande två saker:
 
@@ -151,7 +151,7 @@ public class Info extends WCMUsePojo {
 
 >[!NOTE]
 >
->Du bör använda bindestreck i namn på databasobjekt när du AEM. Däremot är bindestreck ogiltiga i Java-paketnamn. Därför måste **alla bindestreck i databassökvägen konverteras till understreck i paketnamnet**.
+>Du bör använda bindestreck i namn på databasobjekt när du utvecklar AEM. Däremot är bindestreck ogiltiga i Java-paketnamn. Därför måste **alla bindestreck i databassökvägen konverteras till understreck i paketnamnet**.
 
 ### Utökar `WCMUsePojo` {#extending-wcmusepojo}
 
@@ -312,11 +312,11 @@ I det här avsnittet introduceras ytterligare funktioner som går utöver det ex
 
 Parametrar kan skickas till en use-class vid initiering.
 
-Mer information finns i dokumentationen för Sling [HTL-skriptmotorn](https://sling.apache.org/documentation/bundles/scripting/scripting-htl.html#passing-parameters-to-java-use-objects).
+Mer information finns i dokumentationen för `Sling` [HTML-skriptmotorn](https://sling.apache.org/documentation/bundles/scripting/scripting-htl.html#passing-parameters-to-java-use-objects).
 
 ### Paketerad Java-klass {#bundled-java-class}
 
-Med en paketerad användningsklass måste klassen kompileras, paketeras och distribueras i AEM med den vanliga OSGi-paketdistributionsmekanismen. Till skillnad från en lokal installation bör paketdeklarationen för use-klass namnges normalt på samma sätt som i det här `/apps/my-example/component/info/Info.java`-exemplet.
+Med en paketerad användningsklass måste klassen kompileras, paketeras och driftsättas i AEM med den vanliga OSGi-paketdistributionsmekanismen. Till skillnad från en lokal installation bör paketdeklarationen för use-klass namnges normalt på samma sätt som i det här `/apps/my-example/component/info/Info.java`-exemplet.
 
 ```java
 package org.example.app.components;
