@@ -1,17 +1,19 @@
 ---
-title: AEM
-description: AEM erbjuder tillägg av HTML-specifikationen för att AEM som utvecklare.
+title: AEM Extensions
+description: AEM erbjuder tillägg av HTML-specifikationen till AEM för att underlätta för dig som utvecklare.
 exl-id: d78cb84d-f958-45e2-9c6c-df86a68277d5
-source-git-commit: c6bb6f0954ada866cec574d480b6ea5ac0b51a3f
+index: false
+source-git-commit: a496d23277902a5cd573a6a8af770f27b0269f05
 workflow-type: tm+mt
 source-wordcount: '228'
 ht-degree: 0%
 
 ---
 
-# AEM {#aem-extensions}
 
-Ungefär som [Apache Sling-tilläggen i HTML-specifikationen](https://sling.apache.org/documentation/bundles/scripting/scripting-htl.html#extensions-of-the-htl-specification-1) har AEM ytterligare uttrycksalternativ som gör det lite enklare att arbeta med AEM i HTML-skripten.
+# AEM Extensions {#aem-extensions}
+
+På samma sätt som [Apache Sling-tilläggen i HTML-specifikationen](https://sling.apache.org/documentation/bundles/scripting/scripting-htl.html#extensions-of-the-htl-specification-1) har AEM ytterligare uttrycksalternativ som gör det lite enklare att arbeta med AEM-koncept direkt i HTML-skripten.
 
 ## i18n {#i18n}
 
@@ -21,7 +23,7 @@ Samma [tre ytterligare alternativ](https://sling.apache.org/documentation/bundle
 * `hint`
 * `basename`
 
-I AEM implementeras [internationaliseringsstödet](https://experienceleague.adobe.com/sv/docs/experience-manager-65/content/implementing/developing/components/internationalization/i18n-dev) för HTML med hjälp av API:t från paketet `com.day.cq.i18n`.
+I AEM implementeras emellertid [internationaliseringsstödet](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/implementing/developing/components/internationalization/i18n-dev) för HTML med hjälp av API:t från paketet `com.day.cq.i18n`.
 
 ## `data-sly-include` {#data-sly-include}
 

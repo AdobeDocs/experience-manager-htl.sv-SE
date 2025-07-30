@@ -2,7 +2,8 @@
 title: Historik för HTML
 description: För användare som använder AEM länge ger det här dokumentet bakgrunden i HTML, hur den ersätter JSP och namnändringen från Sightly.
 exl-id: 00985b35-2130-4946-959a-0a09a34a0f05
-source-git-commit: addc69e4b4e56a9b1c5f91ce9af26fa2d326d981
+index: false
+source-git-commit: 3a416e337337d31f7a7fdb2c78efac46ecf64096
 workflow-type: tm+mt
 source-wordcount: '530'
 ht-degree: 0%
@@ -62,8 +63,5 @@ I AEM 6.0 och 6.1 anropades HTML **Sightly**. Adobe gav det nya namnet **HTML Te
 >[!NOTE]
 >
 >Den här namnändringen påverkar inte koden eller API:t, och kompatibiliteten påverkas därför inte.
-
-<!-- LINK IS 404
-For more information, watch [this announcement video](https://helpx.adobe.com/experience-manager/how-to/announce-htl.html). -->
 
 Mer information om HTML finns i [Komma igång med HTML-handboken (HTML Templating Language)](overview.md).

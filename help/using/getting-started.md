@@ -2,9 +2,9 @@
 title: Komma igång med HTML
 description: Läs om HTML, det rekommenderade och rekommenderade serverbaserade mallsystemet för HTML i AEM, och förstå de viktigaste begreppen för språket och dess grundläggande konstruktion.
 exl-id: c95eb1b3-3b96-4727-8f4f-d54e7136a8f9
-source-git-commit: addc69e4b4e56a9b1c5f91ce9af26fa2d326d981
+source-git-commit: a496d23277902a5cd573a6a8af770f27b0269f05
 workflow-type: tm+mt
-source-wordcount: '2045'
+source-wordcount: '2077'
 ht-degree: 0%
 
 ---
@@ -15,6 +15,12 @@ ht-degree: 0%
 HTML Template Language (HTL) är det rekommenderade serversidesmallsystemet för HTML i Adobe Experience Manager. Precis som i alla mallsystem på serversidan i HTML definierar en HTML-fil utdata som skickas till webbläsaren genom att ange själva HTML, viss grundläggande presentationslogik och variabler som ska utvärderas vid körning.
 
 Det här dokumentet ger en översikt över syftet med HTML samt en introduktion till grundläggande begrepp och konstruktioner för språket.
+
+>[!TIP]
+>
+>**Har du övervägt Edge Delivery Services för AEM?**
+>
+>Du kan fortsätta använda metoderna som beskrivs i det här dokumentet för befintliga projekt. För nya projekt rekommenderar Adobe att du använder [Edge Delivery Services.](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/edge-delivery/overview)
 
 >[!TIP]
 >

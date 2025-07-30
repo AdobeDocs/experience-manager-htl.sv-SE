@@ -2,7 +2,8 @@
 title: Globala HTML-objekt
 description: Lär dig mer om uppräkningsbara objekt och Java-baserade objekt i HTML.
 exl-id: ca590b92-f1b3-4e44-a04a-a2c10dff256f
-source-git-commit: addc69e4b4e56a9b1c5f91ce9af26fa2d326d981
+index: false
+source-git-commit: a496d23277902a5cd573a6a8af770f27b0269f05
 workflow-type: tm+mt
 source-wordcount: '203'
 ht-degree: 0%
@@ -66,6 +67,6 @@ Det går att backa HTML-logiken med JavaScript. Den rekommenderade eller rekomme
 
 >[!NOTE]
 >
->[JavaScript Use API](https://github.com/adobe/htl-spec/blob/master/SPECIFICATION.md#42-javascript-use-api) är nu föråldrat för användning med AEM as a Cloud Service. Använd i stället [Java Use API](https://experienceleague.adobe.com/sv/docs/experience-manager-htl/content/java-use-api).
+>[JavaScript Use API](https://github.com/adobe/htl-spec/blob/master/SPECIFICATION.md#42-javascript-use-api) är nu föråldrat för användning med AEM as a Cloud Service. Använd i stället [Java Use API](https://experienceleague.adobe.com/en/docs/experience-manager-htl/content/java-use-api).
 >
->Mer information om borttagna och borttagna funktioner finns i [versionsinformationen för AEM as a Cloud Service](https://experienceleague.adobe.com/sv/docs/experience-manager-cloud-service/content/release-notes/deprecated-removed-features).
+>Mer information om borttagna och borttagna funktioner finns i [versionsinformationen för AEM as a Cloud Service](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/release-notes/deprecated-removed-features).
