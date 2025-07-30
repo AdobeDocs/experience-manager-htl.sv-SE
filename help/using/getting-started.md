@@ -20,7 +20,7 @@ Det här dokumentet ger en översikt över syftet med HTML samt en introduktion 
 >
 >**Har du övervägt Edge Delivery Services för AEM?**
 >
->Du kan fortsätta använda metoderna som beskrivs i det här dokumentet för befintliga projekt. För nya projekt rekommenderar Adobe att du använder [Edge Delivery Services.](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/edge-delivery/overview)
+>Du kan fortsätta använda metoderna som beskrivs i det här dokumentet för befintliga projekt. För nya projekt rekommenderar Adobe att du använder [Edge Delivery Services.](https://experienceleague.adobe.com/sv/docs/experience-manager-cloud-service/content/edge-delivery/overview)
 
 >[!TIP]
 >

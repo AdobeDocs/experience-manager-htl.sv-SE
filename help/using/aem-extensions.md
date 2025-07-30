@@ -23,7 +23,7 @@ Samma [tre ytterligare alternativ](https://sling.apache.org/documentation/bundle
 * `hint`
 * `basename`
 
-I AEM implementeras emellertid [internationaliseringsstödet](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/implementing/developing/components/internationalization/i18n-dev) för HTML med hjälp av API:t från paketet `com.day.cq.i18n`.
+I AEM implementeras emellertid [internationaliseringsstödet](https://experienceleague.adobe.com/sv/docs/experience-manager-65/content/implementing/developing/components/internationalization/i18n-dev) för HTML med hjälp av API:t från paketet `com.day.cq.i18n`.
 
 ## `data-sly-include` {#data-sly-include}
 

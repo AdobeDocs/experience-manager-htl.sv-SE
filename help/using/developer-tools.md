@@ -17,4 +17,4 @@ Följande utvecklarverktyg är tillgängliga för HTML:
 
 * [HTL Read Eval Print Loop](https://github.com/adobe/aem-htl-repl) - En körningsmiljö för att spela med språket, bra för inlärning.
 * [HTML Maven-plugin](https://sling.apache.org/components/htl-maven-plugin/) - Plugin-programmet Apache Sling HTL Maven stöder validering av HTML mallspråkskript från projekt under byggtid.
-* [AEM Eclipse-tillägg](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developer-tools/eclipse) - Ett verktyg för backend-utvecklare som skapar och redigerar projekt för AEM.
+* [AEM Eclipse-tillägg](https://experienceleague.adobe.com/sv/docs/experience-manager-cloud-service/content/implementing/developer-tools/eclipse) - Ett verktyg för backend-utvecklare som skapar och redigerar projekt för AEM.
