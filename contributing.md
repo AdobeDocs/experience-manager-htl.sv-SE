@@ -17,7 +17,7 @@ Det här projektet har antagit [Adobe Open Source Code of Conduct](code-of-condu
 
 ## Riktlinjer för bidrag
 
-Adobe välkomnar alla bidrag för att förbättra AEM dokumentation, men se till att bidragen följer vissa riktlinjer och standarder där det är möjligt. Läs [Riktlinjerna för att bidra till AEM ](guidelines.md) om du vill ha mer information.
+Adobe välkomnar alla bidrag för att förbättra AEM dokumentation, men se till att bidragen följer vissa riktlinjer och standarder där det är möjligt. Läs [Riktlinjerna för att bidra till AEM &#x200B;](guidelines.md) om du vill ha mer information.
 
 ## How to Contribute
 

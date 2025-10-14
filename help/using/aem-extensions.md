@@ -27,7 +27,7 @@ I AEM implementeras emellertid [internationaliseringsstödet](https://experience
 
 ## `data-sly-include` {#data-sly-include}
 
-I AEM kan `data-sly-include` ta ytterligare ett `wcmmode`-alternativ som styr [WCM-läget ](https://developer.adobe.com/experience-manager/reference-materials/cloud-service/javadoc/com/day/cq/wcm/api/WCMMode.html) för det inkluderade skriptet. De tillåtna värdena är namnen på de tillgängliga enum-konstanterna.
+I AEM kan `data-sly-include` ta ytterligare ett `wcmmode`-alternativ som styr [WCM-läget &#x200B;](https://developer.adobe.com/experience-manager/reference-materials/cloud-service/javadoc/com/day/cq/wcm/api/WCMMode.html) för det inkluderade skriptet. De tillåtna värdena är namnen på de tillgängliga enum-konstanterna.
 
 ## `data-sly-resource` {#data-sly-resource}
 
